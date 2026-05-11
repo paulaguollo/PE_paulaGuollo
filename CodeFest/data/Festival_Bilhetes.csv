@@ -1,0 +1,142 @@
+idBilhete;idCliente;nomeCliente;contacto;email;dia;tipoBilhete;valor
+B00-001;1;Cristiano Ronaldo;910000001;cristiano.ronaldo@festival.local;Sexta;Backstage;149.99
+B00-002;2;Elon Musk;910000002;elon.musk@festival.local;Sexta;Backstage;149.99
+B00-003;3;Jeff Bezos;910000003;jeff.bezos@festival.local;Sexta;Backstage;149.99
+B00-004;4;Bill Gates;910000004;bill.gates@festival.local;Sexta;Backstage;149.99
+B00-005;5;Mark Zuckerberg;910000005;mark.zuckerberg@festival.local;Sexta;Backstage;149.99
+B00-006;6;Bernard Arnault;910000006;bernard.arnault@festival.local;Sexta;Backstage;149.99
+B00-007;7;Warren Buffett;910000007;warren.buffett@festival.local;Sexta;Backstage;149.99
+B00-008;8;Lionel Messi;910000008;lionel.messi@festival.local;Sexta;Backstage;149.99
+B00-009;9;LeBron James;910000009;lebron.james@festival.local;Sexta;Backstage;149.99
+B00-010;10;Dwayne Johnson;910000010;dwayne.johnson@festival.local;Sexta;Backstage;149.99
+B00-011;11;Kim Kardashian;910000011;kim.kardashian@festival.local;Sexta;Backstage;149.99
+B00-012;12;MrBeast;910000012;mrbeast@festival.local;Sexta;Backstage;149.99
+B00-013;13;José Mourinho;910000013;jose.mourinho@festival.local;Sexta;VIP;79.99
+B00-014;14;Luís Figo;910000014;luis.figo@festival.local;Sexta;VIP;79.99
+B00-015;15;Sara Sampaio;910000015;sara.sampaio@festival.local;Sexta;VIP;79.99
+B00-016;16;Cristina Ferreira;910000016;cristina.ferreira@festival.local;Sexta;VIP;79.99
+B00-017;17;Manuel Luís Goucha;910000017;manuel.luis.goucha@festival.local;Sexta;VIP;79.99
+B00-018;18;Fernando Mendes;910000018;fernando.mendes@festival.local;Sexta;VIP;79.99
+B00-019;19;Ricardo Araújo Pereira;910000019;ricardo.araujo.pereira@festival.local;Sexta;VIP;79.99
+B00-020;20;Bruno Nogueira;910000020;bruno.nogueira@festival.local;Sexta;VIP;79.99
+B00-021;21;Nuno Markl;910000021;nuno.markl@festival.local;Sexta;VIP;79.99
+B00-022;22;Ljubomir Stanisic;910000022;ljubomir.stanisic@festival.local;Sexta;VIP;79.99
+B00-023;23;Catarina Furtado;910000023;catarina.furtado@festival.local;Sexta;VIP;79.99
+B00-024;24;Marcelo Rebelo de Sousa;910000024;marcelo.rebelo.sousa@festival.local;Sexta;VIP;79.99
+B00-025;25;Ivone Costa;910000025;ivone.costa@festival.local;Sexta;Diário;39.99
+B00-026;26;Joaquim Alberto;910000026;joaquim.alberto@festival.local;Sexta;Diário;39.99
+B00-027;27;DJ8;910000027;dj8@festival.local;Sexta;Diário;39.99
+B00-028;28;Nelo do Talho;910000028;nelo.do.talho@festival.local;Sexta;Diário;39.99
+B00-029;29;Maria Leal;910000029;maria.leal@festival.local;Sexta;Diário;39.99
+B00-030;30;Emplastro;910000030;emplastro@festival.local;Sexta;Diário;39.99
+B00-031;31;Senhor do Adeus;910000031;senhor.do.adeus@festival.local;Sexta;Diário;39.99
+B00-032;32;Zé dos Bigodes;910000032;ze.dos.bigodes@festival.local;Sexta;Diário;39.99
+B00-033;1;Cristiano Ronaldo;910000001;cristiano.ronaldo@festival.local;Sábado;Backstage;169.99
+B00-034;2;Elon Musk;910000002;elon.musk@festival.local;Sábado;Backstage;169.99
+B00-035;3;Jeff Bezos;910000003;jeff.bezos@festival.local;Sábado;Backstage;169.99
+B00-036;4;Bill Gates;910000004;bill.gates@festival.local;Sábado;Backstage;169.99
+B00-037;5;Mark Zuckerberg;910000005;mark.zuckerberg@festival.local;Sábado;Backstage;169.99
+B00-038;6;Bernard Arnault;910000006;bernard.arnault@festival.local;Sábado;Backstage;169.99
+B00-039;7;Warren Buffett;910000007;warren.buffett@festival.local;Sábado;Backstage;169.99
+B00-040;8;Lionel Messi;910000008;lionel.messi@festival.local;Sábado;Backstage;169.99
+B00-041;9;LeBron James;910000009;lebron.james@festival.local;Sábado;Backstage;169.99
+B00-042;10;Dwayne Johnson;910000010;dwayne.johnson@festival.local;Sábado;Backstage;169.99
+B00-043;11;Kim Kardashian;910000011;kim.kardashian@festival.local;Sábado;Backstage;169.99
+B00-044;12;MrBeast;910000012;mrbeast@festival.local;Sábado;Backstage;169.99
+B00-045;13;José Mourinho;910000013;jose.mourinho@festival.local;Sábado;VIP;89.99
+B00-046;14;Luís Figo;910000014;luis.figo@festival.local;Sábado;VIP;89.99
+B00-047;15;Sara Sampaio;910000015;sara.sampaio@festival.local;Sábado;VIP;89.99
+B00-048;16;Cristina Ferreira;910000016;cristina.ferreira@festival.local;Sábado;VIP;89.99
+B00-125;27;DJ8;910000027;dj8@festival.local;Sexta;Diário;39.99
+B00-126;27;DJ8;910000027;dj8@festival.local;Sexta;Diário;39.99
+B00-127;27;DJ8;910000027;dj8@festival.local;Sexta;Diário;39.99
+B00-128;27;DJ8;910000027;dj8@festival.local;Sábado;Diário;49.99
+B00-129;27;DJ8;910000027;dj8@festival.local;Sábado;Diário;49.99
+B00-130;27;DJ8;910000027;dj8@festival.local;Sábado;Diário;49.99
+B00-049;17;Manuel Luís Goucha;910000017;manuel.luis.goucha@festival.local;Sábado;VIP;89.99
+B00-050;18;Fernando Mendes;910000018;fernando.mendes@festival.local;Sábado;VIP;89.99
+B00-051;19;Ricardo Araújo Pereira;910000019;ricardo.araujo.pereira@festival.local;Sábado;VIP;89.99
+B00-052;20;Bruno Nogueira;910000020;bruno.nogueira@festival.local;Sábado;VIP;89.99
+B00-053;21;Nuno Markl;910000021;nuno.markl@festival.local;Sábado;VIP;89.99
+B00-054;22;Ljubomir Stanisic;910000022;ljubomir.stanisic@festival.local;Sábado;VIP;89.99
+B00-055;25;Ivone Costa;910000025;ivone.costa@festival.local;Sábado;Diário;49.99
+B00-056;26;Joaquim Alberto;910000026;joaquim.alberto@festival.local;Sábado;Diário;49.99
+B00-057;27;DJ8;910000027;dj8@festival.local;Sábado;Diário;49.99
+B00-058;28;Nelo do Talho;910000028;nelo.do.talho@festival.local;Sábado;Diário;49.99
+B00-059;29;Maria Leal;910000029;maria.leal@festival.local;Sábado;Diário;49.99
+B00-060;30;Emplastro;910000030;emplastro@festival.local;Sábado;Diário;49.99
+B00-061;34;Mónica Jardim;910000034;monica.jardim@festival.local;Sábado;Diário;49.99
+B00-062;36;Batatinha;910000036;batatinha@festival.local;Sábado;Diário;49.99
+B00-063;1;Cristiano Ronaldo;910000001;cristiano.ronaldo@festival.local;Domingo;Backstage;159.99
+B00-064;2;Elon Musk;910000002;elon.musk@festival.local;Domingo;Backstage;159.99
+B00-065;3;Jeff Bezos;910000003;jeff.bezos@festival.local;Domingo;Backstage;159.99
+B00-066;4;Bill Gates;910000004;bill.gates@festival.local;Domingo;Backstage;159.99
+B00-067;5;Mark Zuckerberg;910000005;mark.zuckerberg@festival.local;Domingo;Backstage;159.99
+B00-068;6;Bernard Arnault;910000006;bernard.arnault@festival.local;Domingo;Backstage;159.99
+B00-069;8;Lionel Messi;910000008;lionel.messi@festival.local;Domingo;Backstage;159.99
+B00-070;9;LeBron James;910000009;lebron.james@festival.local;Domingo;Backstage;159.99
+B00-071;10;Dwayne Johnson;910000010;dwayne.johnson@festival.local;Domingo;Backstage;159.99
+B00-132;27;DJ8;910000027;dj8@festival.local;Sábado;Diário;49.99
+B00-133;27;DJ8;910000027;dj8@festival.local;Sábado;Diário;49.99
+B00-134;27;DJ8;910000027;dj8@festival.local;Sábado;Diário;49.99
+B00-135;27;DJ8;910000027;dj8@festival.local;Domingo;Diário;44.99
+B00-136;27;DJ8;910000027;dj8@festival.local;Domingo;Diário;44.99
+B00-072;11;Kim Kardashian;910000011;kim.kardashian@festival.local;Domingo;Backstage;159.99
+B00-073;12;MrBeast;910000012;mrbeast@festival.local;Domingo;Backstage;159.99
+B00-074;13;José Mourinho;910000013;jose.mourinho@festival.local;Domingo;VIP;84.99
+B00-075;15;Sara Sampaio;910000015;sara.sampaio@festival.local;Domingo;VIP;84.99
+B00-076;16;Cristina Ferreira;910000016;cristina.ferreira@festival.local;Domingo;VIP;84.99
+B00-077;17;Manuel Luís Goucha;910000017;manuel.luis.goucha@festival.local;Domingo;VIP;84.99
+B00-078;18;Fernando Mendes;910000018;fernando.mendes@festival.local;Domingo;VIP;84.99
+B00-079;19;Ricardo Araújo Pereira;910000019;ricardo.araujo.pereira@festival.local;Domingo;VIP;84.99
+B00-080;20;Bruno Nogueira;910000020;bruno.nogueira@festival.local;Domingo;VIP;84.99
+B00-081;23;Catarina Furtado;910000023;catarina.furtado@festival.local;Domingo;VIP;84.99
+B00-082;24;Marcelo Rebelo de Sousa;910000024;marcelo.rebelo.sousa@festival.local;Domingo;VIP;84.99
+B00-083;25;Ivone Costa;910000025;ivone.costa@festival.local;Domingo;Diário;44.99
+B00-084;26;Joaquim Alberto;910000026;joaquim.alberto@festival.local;Domingo;Diário;44.99
+B00-085;27;DJ8;910000027;dj8@festival.local;Domingo;Diário;44.99
+B00-086;29;Maria Leal;910000029;maria.leal@festival.local;Domingo;Diário;44.99
+B00-087;30;Emplastro;910000030;emplastro@festival.local;Domingo;Diário;44.99
+B00-088;31;Senhor do Adeus;910000031;senhor.do.adeus@festival.local;Domingo;Diário;44.99
+B00-089;32;Zé dos Bigodes;910000032;ze.dos.bigodes@festival.local;Domingo;Diário;44.99
+B00-131;27;DJ8;910000027;dj8@festival.local;Sábado;Diário;49.99
+B00-137;27;DJ8;910000027;dj8@festival.local;Domingo;Diário;44.99
+B00-138;27;DJ8;910000027;dj8@festival.local;Domingo;Diário;44.99
+B00-139;27;DJ8;910000027;dj8@festival.local;Domingo;Diário;44.99
+B00-140;27;DJ8;910000027;dj8@festival.local;Domingo;Diário;44.99
+B00-141;27;DJ8;910000027;dj8@festival.local;Domingo;Diário;44.99
+B00-090;33;Tia de Cascais;910000033;tia.de.cascais@festival.local;Domingo;Diário;44.99
+B00-091;37;Tim Cook;910000037;tim.cook@festival.local;Sexta;Backstage;149.99
+B00-092;38;Larry Ellison;910000038;larry.ellison@festival.local;Sexta;Backstage;149.99
+B00-093;39;Steve Ballmer;910000039;steve.ballmer@festival.local;Sexta;Backstage;149.99
+B00-094;40;Mukesh Ambani;910000040;mukesh.ambani@festival.local;Sexta;Backstage;149.99
+B00-095;41;Carlos Slim;910000041;carlos.slim@festival.local;Sexta;Backstage;149.99
+B00-096;42;Michael Jordan;910000042;michael.jordan@festival.local;Sexta;Backstage;149.99
+B00-097;43;Tiger Woods;910000043;tiger.woods@festival.local;Sexta;Backstage;149.99
+B00-098;44;Lewis Hamilton;910000044;lewis.hamilton@festival.local;Sexta;Backstage;149.99
+B00-099;45;Tom Cruise;910000045;tom.cruise@festival.local;Sexta;Backstage;149.99
+B00-121;27;DJ8;910000027;dj8@festival.local;Sexta;Diário;39.99
+B00-122;27;DJ8;910000027;dj8@festival.local;Sexta;Diário;39.99
+B00-123;27;DJ8;910000027;dj8@festival.local;Sexta;Diário;39.99
+B00-124;27;DJ8;910000027;dj8@festival.local;Sexta;Diário;39.99
+B00-100;46;George Clooney;910000046;george.clooney@festival.local;Sexta;Backstage;149.99
+B00-101;47;Paulo Futre;910000047;paulo.futre@festival.local;Sexta;VIP;79.99
+B00-102;48;Jorge Jesus;910000048;jorge.jesus@festival.local;Sexta;VIP;79.99
+B00-103;49;Vítor Baía;910000049;vitor.baia@festival.local;Sexta;VIP;79.99
+B00-104;50;Dolores Aveiro;910000050;dolores.aveiro@festival.local;Sexta;VIP;79.99
+B00-105;51;José Castelo Branco;910000051;jose.castelo.branco@festival.local;Sexta;VIP;79.99
+B00-106;52;Teresa Guilherme;910000052;teresa.guilherme@festival.local;Sexta;VIP;79.99
+B00-107;53;José Rodrigues dos Santos;910000053;jose.rodrigues.santos@festival.local;Sexta;VIP;79.99
+B00-108;54;César Mourão;910000054;cesar.mourao@festival.local;Sexta;VIP;79.99
+B00-109;55;Rui Unas;910000055;rui.unas@festival.local;Sexta;VIP;79.99
+B00-110;56;Fernando Rocha;910000056;fernando.rocha@festival.local;Sexta;VIP;79.99
+B00-111;57;Tino de Rans;910000057;tino.de.rans@festival.local;Sexta;Diário;39.99
+B00-112;58;Quim Roscas;910000058;quim.roscas@festival.local;Sexta;Diário;39.99
+B00-113;59;Zeca Estacionâncio;910000059;zeca.estacionancio@festival.local;Sexta;Diário;39.99
+B00-114;60;Alberto João Jardim;910000060;alberto.joao.jardim@festival.local;Sexta;Diário;39.99
+B00-115;61;Nilton;910000061;nilton@festival.local;Sexta;Diário;39.99
+B00-116;62;Dona Amélia;910000062;dona.amelia@festival.local;Sexta;Diário;39.99
+B00-117;63;Senhor Fernando da Junta;910000063;senhor.fernando.da.junta@festival.local;Sexta;Diário;39.99
+B00-118;64;Dona Ermelinda;910000064;dona.ermelinda@festival.local;Sexta;Diário;39.99
+B00-119;65;Toni dos Bigodes;910000065;toni.dos.bigodes@festival.local;Sexta;Diário;39.99
+B00-120;66;Manel do Café;910000066;manel.do.cafe@festival.local;Sexta;Diário;39.99

@@ -1,0 +1,31 @@
+idConcerto;dia;hora;palco;artista;genero;duracao
+C001;Sexta;16:00;Palco Java;Coro da Igreja de São Bento;Coro;35
+C002;Sexta;16:45;Palco Commit;Rancho Folclórico de Freixo de Espada à Cinta;Rancho;45
+C003;Sexta;17:45;Palco Main;Rosinha;Pimba;50
+C004;Sexta;18:45;Palco Java;Coro Paroquial de Santa Cecília;Coro;40
+C005;Sexta;19:30;Palco Commit;Rancho das Lavradeiras do Minho;Rancho;45
+C006;Sexta;20:30;Palco Main;Toy;Pimba;60
+C007;Sexta;21:45;Palco Commit;Rancho Folclórico Os Malmequeres;Rancho;45
+C008;Sexta;22:30;Palco Main;Quim Barreiros;Pimba;75
+C009;Sexta;23:45;Palco Main;José Pinhal;Pimba;55
+C010;Sexta;00:45;Palco Java;Conjunto Típico Os Amigos do Acordeão e dos Bombos;Popular;60
+C011;Sábado;16:00;Palco Commit;Olivia Rodrigo;Pop;55
+C012;Sábado;17:00;Palco Main;Dua Lipa;Pop;70
+C013;Sábado;18:15;Palco Java;The Weeknd;R&B;75
+C014;Sábado;19:30;Palco Main;Harry Styles;Pop;75
+C015;Sábado;20:45;Palco Commit;Calvin Harris;Eletrónica;70
+C016;Sábado;22:00;Palco Main;Justin Bieber;Pop;80
+C017;Sábado;23:30;Palco Java;Billie Eilish;Pop Alternativo;75
+C018;Sábado;00:45;Palco Main;Ed Sheeran;Pop;85
+C019;Sábado;02:00;Palco Commit;David Guetta;Eletrónica;90
+C020;Sábado;03:30;Palco Commit;Martin Garrix;Eletrónica;75
+C021;Domingo;15:30;Palco Java;Bon Jovi;Rock;75
+C022;Domingo;16:45;Palco Main;Queen Tribute Experience;Rock Clássico;70
+C023;Domingo;18:00;Palco Java;Aerosmith;Hard Rock;80
+C024;Domingo;19:30;Palco Main;Foo Fighters;Rock;85
+C025;Domingo;21:00;Palco Commit;Iron Maiden;Heavy Metal;90
+C026;Domingo;22:30;Palco Main;AC/DC;Hard Rock;95
+C027;Domingo;00:15;Palco Java;Guns N Roses;Hard Rock;100
+C028;Domingo;02:00;Palco Main;Metallica;Heavy Metal;105
+C029;Domingo;03:45;Palco Commit;Rammstein;Metal Industrial;90
+C030;Domingo;05:15;Palco Main;Red Hot Chili Peppers;Rock Alternativo;85
