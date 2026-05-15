@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+import static CodeFest.BibliotecaFicheiros.lerFicheiroParaMatriz;
+
 public class BibliotecaFormatacao {
 
 
@@ -29,9 +31,10 @@ public class BibliotecaFormatacao {
         }
     }
 
-    public static void copyright() {
-        System.out.println("------Desenvolvido por Paula Guollo------");
+    public static void copyright() throws FileNotFoundException {
+        imprimirFicheiroNaConsola("CodeFest/data/Festival_Copyright.txt");
     }
+
 
     }
 

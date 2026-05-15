@@ -1,6 +1,6 @@
 package CodeFest;
 
-public class BibliotecaCliente {
+public class BibliotecaFestivaleiro {
    /* public static void pesquisarMusicasPorGenero(String[][] matrizMusicas, String generoPesquisar) {
 
         for (int linha = 0; linha < matrizMusicas.length; linha++) {
