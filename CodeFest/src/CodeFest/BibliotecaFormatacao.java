@@ -24,7 +24,7 @@ public class BibliotecaFormatacao {
     public static void primaEnter() {
         Scanner input = new Scanner(System.in);
 
-        System.out.println("\nPrima enter para continuar");
+        System.out.println("\nPrima enter para voltar ao menu inicial");
         input.nextLine();
         for (int i = 0; i < 200; i++) {
             System.out.println();
