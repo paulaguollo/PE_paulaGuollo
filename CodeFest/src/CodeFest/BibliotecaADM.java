@@ -15,16 +15,10 @@ public class BibliotecaADM {
      * @return Validação para seguir para o Menu de escolhas
      * @throws FileNotFoundException Caso o ficheiro não exista
      */
-    public static boolean validarLogin(String usernameInput, String passwordInput, boolean cabecalho) throws FileNotFoundException {
-
-        String[][] matrizAdmin = lerFicheiroParaMatriz("CodeFest/data/Festival_AdminLogin.csv", ";", false);
+    public static boolean validarLogin(String usernameInput, String passwordInput, String[][] matrizAdmin) throws FileNotFoundException {
 
 
         for (int i = 0; i < matrizAdmin.length; i++) {
-
-            System.out.println("Comparar "+ matrizAdmin[i][0] + " com "+ usernameInput);
-            System.out.println("Comparar "+ matrizAdmin[i][1] + " com "+ passwordInput);
-            System.out.println("-------------------------------------------------------------");
 
             if (matrizAdmin[i].length >= 2) {
 

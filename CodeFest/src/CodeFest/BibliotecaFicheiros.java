@@ -45,9 +45,15 @@ public class BibliotecaFicheiros {
         return contagemColunas;
     }
 
-    public static String[][] lerFicheiroParaMatriz(String caminhoFicheiro, String delimitador, boolean cabecalho) throws FileNotFoundException {
+    public static String[][] lerFicheiroParaMatriz(String caminhoFicheiro, String delimitador, boolean temCabecalho) throws FileNotFoundException {
 
-        int numeroLinhas = contarLinhasFicheiro(caminhoFicheiro) - 1;
+        int numeroLinhas = contarLinhasFicheiro(caminhoFicheiro);
+
+        if(temCabecalho) {
+            // Avançar o cabeçalho
+           numeroLinhas--;
+        }
+
         int numeroColunas = contarColunasFicheiro(caminhoFicheiro, delimitador);
 
         int linhaAtualMatriz = 0;
@@ -57,7 +63,7 @@ public class BibliotecaFicheiros {
         File ficheiro = new File(caminhoFicheiro);
         Scanner sc = new Scanner(ficheiro);
 
-        if(cabecalho) {
+        if(temCabecalho) {
             // Avançar o cabeçalho
             sc.nextLine();
         }

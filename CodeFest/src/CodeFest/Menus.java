@@ -12,7 +12,7 @@ public class Menus {
 
     //MENU INICIAL DE LOGIN
 
-        public static void menuLogin(String[][] matrizMusicas, String[][] matrizBilhetes,String[][] matrizCartaz, String[][] matrizQuiz) throws FileNotFoundException {
+        public static void menuLogin( String[][] matrizBilhetes,String[][] matrizCartaz, String[][] matrizQuiz, String[][] matrizAdmin ) throws FileNotFoundException {
             Scanner input = new Scanner(System.in);
 
             int opcao;
@@ -38,16 +38,16 @@ public class Menus {
                         String passwordInput = input.nextLine();
 
                         // Valida pelo ficheiro Festival_AdminLogin.csv
-                        if (validarLogin(usernameInput, passwordInput, false)) {
+                        if (validarLogin(usernameInput, passwordInput, matrizAdmin)) {
                             System.out.println("Login realizado com sucesso! Bem-vindo :)");
-                            menuAdmin(matrizMusicas, matrizBilhetes, matrizCartaz, matrizQuiz);
+                            menuAdmin( matrizBilhetes, matrizCartaz, matrizQuiz);
                         } else {
                             System.out.println("Username ou password incorretos. Tente novamente.");
                         }
                         break;
 
                     case 2: // FESTIVALEIRO
-                        menuCliente(matrizMusicas, matrizBilhetes, matrizCartaz, matrizQuiz);
+                        menuCliente( matrizBilhetes, matrizCartaz, matrizQuiz);
                         break;
 
                     case 0:
@@ -67,7 +67,7 @@ public class Menus {
 
 //MENU FESTIVALEIRO
 
-    public static void menuCliente(String[][] matrizMusicas, String[][] matrizBilhetes, String[][] matrizCartaz, String[][] matrizQuiz) throws FileNotFoundException {
+    public static void menuCliente( String[][] matrizBilhetes, String[][] matrizCartaz, String[][] matrizQuiz) throws FileNotFoundException {
         Scanner input = new Scanner(System.in);
         int opcao;
 
@@ -137,7 +137,7 @@ public class Menus {
     }
 
     //MENU ADM
-    public static void menuAdmin(String[][] matrizMusicas, String[][] matrizBilhetes, String[][] matrizCartaz, String[][] matrizQuiz) throws FileNotFoundException {
+    public static void menuAdmin(String[][] matrizBilhetes, String[][] matrizCartaz, String[][] matrizQuiz) throws FileNotFoundException {
         Scanner input = new Scanner(System.in);
 
         int opcao;
@@ -218,12 +218,12 @@ public class Menus {
 
     public static void main(String[] args) throws FileNotFoundException {
 
-        String[][] matrizMusicas  = lerFicheiroParaMatriz("CodeFest/data/Festival_Cartaz.csv", ";", false);
         String[][] matrizBilhetes = lerFicheiroParaMatriz("CodeFest/data/Festival_Bilhetes.csv", ";", true);
         String[][] matrizCartaz  = lerFicheiroParaMatriz("CodeFest/data/Festival_Cartaz.csv", ";", true);
         String[][] matrizQuiz = lerFicheiroParaMatriz("CodeFest/data/Festival_Quiz.csv", ";", true);
+        String[][] matrizAdmin = lerFicheiroParaMatriz("CodeFest/data/Festival_AdminLogin.csv", ";", false);
 
-        menuLogin(matrizMusicas, matrizBilhetes, matrizCartaz, matrizQuiz);
+        menuLogin(matrizBilhetes, matrizCartaz, matrizQuiz, matrizAdmin);
     }
 }
 
