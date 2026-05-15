@@ -32,6 +32,13 @@ public class BibliotecaFicheiros {
 
     }
 
+    /**
+     * Função para contar as colunas para uma matriz
+     * @param caminhoFicheiro
+     * @param delimitador
+     * @return Matriz completa
+     * @throws FileNotFoundException
+     */
     public static int contarColunasFicheiro(String caminhoFicheiro, String delimitador) throws FileNotFoundException {
 
         File ficheiro = new File(caminhoFicheiro);
@@ -45,6 +52,14 @@ public class BibliotecaFicheiros {
         return contagemColunas;
     }
 
+    /**
+     * Função para ler um ficheiro para Matriz
+     * @param caminhoFicheiro
+     * @param delimitador
+     * @param temCabecalho
+     * @return matriz completa com ou sem cabeçalho
+     * @throws FileNotFoundException
+     */
     public static String[][] lerFicheiroParaMatriz(String caminhoFicheiro, String delimitador, boolean temCabecalho) throws FileNotFoundException {
 
         int numeroLinhas = contarLinhasFicheiro(caminhoFicheiro);
@@ -87,4 +102,8 @@ public class BibliotecaFicheiros {
         return matrizCompleta;
 
     }
+
+
+
+
 }

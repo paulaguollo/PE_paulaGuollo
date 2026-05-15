@@ -10,6 +10,14 @@ import static CodeFest.Menus.*;
 
 public class MenuFestivaleiro {
 
+    /**
+     * Função para o Menu do Cliente/Festivaleiro
+     * @param matrizBilhetes
+     * @param matrizCartaz
+     * @param matrizQuiz
+     * @param matrizAdmin
+     * @throws FileNotFoundException
+     */
     public static void menuCliente(String[][] matrizBilhetes, String[][] matrizCartaz, String[][] matrizQuiz, String[][] matrizAdmin) throws FileNotFoundException {
         Scanner input = new Scanner(System.in);
         int opcao;

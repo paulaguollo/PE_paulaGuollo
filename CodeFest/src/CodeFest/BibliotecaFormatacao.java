@@ -4,11 +4,13 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import static CodeFest.BibliotecaFicheiros.lerFicheiroParaMatriz;
-
 public class BibliotecaFormatacao {
 
-
+    /**
+     * Função para imprimir o ficheiro na consola
+     * @param caminhoFicheiro
+     * @throws FileNotFoundException
+     */
     public static void imprimirFicheiroNaConsola(String caminhoFicheiro) throws FileNotFoundException {
 
         File ficheiro = new File(caminhoFicheiro);
@@ -21,6 +23,17 @@ public class BibliotecaFormatacao {
 
     }
 
+    /**
+     * Função para aparecer o copyright depois de escolher a opção de sair do menu
+     * @throws FileNotFoundException
+     */
+    public static void copyright() throws FileNotFoundException {
+        imprimirFicheiroNaConsola("CodeFest/data/Festival_Copyright.txt");
+    }
+
+    /**
+     * Função para primar entender depois do copyright para voltar ao menu
+     */
     public static void primaEnter() {
         Scanner input = new Scanner(System.in);
 
@@ -30,11 +43,6 @@ public class BibliotecaFormatacao {
             System.out.println();
         }
     }
-
-    public static void copyright() throws FileNotFoundException {
-        imprimirFicheiroNaConsola("CodeFest/data/Festival_Copyright.txt");
-    }
-
 
     }
 

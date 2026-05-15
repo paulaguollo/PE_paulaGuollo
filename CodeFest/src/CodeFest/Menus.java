@@ -11,7 +11,14 @@ import static CodeFest.MenuFestivaleiro.*;
 
 public class Menus {
 
-    //MENU INICIAL DE LOGIN
+    /**
+     * Função do menu de login inicial
+     * @param matrizBilhetes
+     * @param matrizCartaz
+     * @param matrizQuiz
+     * @param matrizAdmin
+     * @throws FileNotFoundException
+     */
         public static void menuLogin( String[][] matrizBilhetes,String[][] matrizCartaz, String[][] matrizQuiz, String[][] matrizAdmin ) throws FileNotFoundException {
             Scanner input = new Scanner(System.in);
 
@@ -65,7 +72,11 @@ public class Menus {
             } while (opcao != 0);
         }
 
-
+    /**
+     * Função main para rodar o programar a ler os ficheiros
+     * @param args
+     * @throws FileNotFoundException
+     */
     public static void main(String[] args) throws FileNotFoundException {
 
         String[][] matrizBilhetes = lerFicheiroParaMatriz("CodeFest/data/Festival_Bilhetes.csv", ";", true);

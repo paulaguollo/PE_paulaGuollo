@@ -9,13 +9,22 @@ import static CodeFest.BibliotecaFormatacao.*;
 import static CodeFest.Menus.*;
 
 public class MenuADM {
+
+    /**
+     * Função do menu do Admin
+      * @param matrizBilhetes
+     * @param matrizCartaz
+     * @param matrizQuiz
+     * @param matrizAdmin
+     * @throws FileNotFoundException
+     */
 public static void menuAdmin(String[][] matrizBilhetes, String[][] matrizCartaz, String[][] matrizQuiz,  String[][] matrizAdmin) throws FileNotFoundException {
     Scanner input = new Scanner(System.in);
 
     int opcao;
     do {
         System.out.println("\n------------------------------------------------");
-        System.out.println("----- Menu de Análise de Playlists - Admin -----");
+        System.out.println("----- Menu de Análise de Playlists - Admin -------");
         System.out.println("\n------------------------------------------------");
         System.out.println("1. Consulta de Ficheiros");
         System.out.println("2. Total de Bilhetes Vendidos");
@@ -38,9 +47,7 @@ public static void menuAdmin(String[][] matrizBilhetes, String[][] matrizCartaz,
                 break;
 
             case 2:
-                System.out.println("------Total de Bilhetes Vendidos------");
                 totalBilhetesVendidos(matrizBilhetes);
-
                 break;
 
             case 3:

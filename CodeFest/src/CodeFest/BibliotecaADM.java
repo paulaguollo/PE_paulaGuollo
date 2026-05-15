@@ -4,8 +4,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import static CodeFest.BibliotecaFicheiros.*;
-import static CodeFest.BibliotecaFormatacao.copyright;
-import static CodeFest.BibliotecaFormatacao.primaEnter;
+import static CodeFest.BibliotecaFormatacao.*;
 
 public class BibliotecaADM {
 
@@ -39,6 +38,10 @@ public class BibliotecaADM {
         return false;
     }
 
+    /**
+     * Função com o menu para escolha de ficheiros
+     * @throws FileNotFoundException
+     */
     public static void menuConsultaFicheiro() throws FileNotFoundException {
         Scanner input = new Scanner(System.in);
 
@@ -104,8 +107,13 @@ public class BibliotecaADM {
         } while (opcao != 0);
     }
 
+    /**
+     * Função para saber a quantidade total de bilhetes vendidos e o valor faturado
+     * @param matrizBilhetes
+     * @throws FileNotFoundException
+     */
     public static void totalBilhetesVendidos(String[][] matrizBilhetes) throws FileNotFoundException {
-        
+
         double valorTotal = 0;
 
             for (int i = 0; i < matrizBilhetes.length; i++) {
