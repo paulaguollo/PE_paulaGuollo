@@ -17,8 +17,7 @@ public class Menus {
 
             int opcao;
             do {
-                System.out.println("\n------------------------------------");
-                System.out.println("------ Bem-vindo ao CodeFest :) ------");
+                System.out.println("\n------ Bem-vindo ao CodeFest :) ------");
                 System.out.println("1. Admin");
                 System.out.println("2. Festivaleiro");
                 System.out.println("0. Sair");
@@ -27,6 +26,7 @@ public class Menus {
                 opcao = input.nextInt();
 
                 System.out.println("\n------------------------------------------");
+
 
                 switch (opcao) {
                     case 1: // ADM
@@ -38,11 +38,13 @@ public class Menus {
                         String passwordInput = input.nextLine();
 
                         // Valida pelo ficheiro Festival_AdminLogin.csv
+
                         if (validarLogin(usernameInput, passwordInput)) {
-                            menuAdmin(matrizMusicas, matrizBilhetes, matrizCartaz, matrizQuiz);
-                        }else{
-                            System.out.println("\nCredenciais Inválidas");
+                            System.out.print("Login realizado com sucesso!\n");
+                        } else {
+                            System.out.print("Login invalido! Tente novamente.\n");
                         }
+
                         break;
 
                     case 2: // FESTIVALEIRO
@@ -71,7 +73,6 @@ public class Menus {
         int opcao;
 
         do {
-            System.out.println("\n---------------------------------");
             System.out.println("----- Menu de Festivaleiro :) -----");
             System.out.println("1. Novo Registro");
             System.out.println("2. Procurar lugares de Campismo");

@@ -9,6 +9,7 @@ public class BibliotecaADM {
 
     /**
      * Função para validar Login
+     *
      * @param usernameInput - username
      * @param passwordInput - senha
      * @return Validação para seguir para o Menu de escolhas
@@ -16,28 +17,23 @@ public class BibliotecaADM {
      */
     public static boolean validarLogin(String usernameInput, String passwordInput) throws FileNotFoundException {
 
-        Scanner input = new Scanner(System.in);
+        String[][] matrizAdmin = lerFicheiroParaMatriz("CodeFest/data/Festival_AdminLogin.csv", ";");
+        int i = 0;
 
-        String[][] matrizAdmin = lerFicheiroParaMatriz("Ficheiros/Festival_AdminLogin.csv", ";");
+        if (matrizAdmin[i].length >= 2) {
 
-        boolean valido = false;
+            if (usernameInput.trim().equals(matrizAdmin[i][0].trim()) &&
+                    passwordInput.trim().equals(matrizAdmin[i][1].trim())) {
 
-        for (int i = 0; i < matrizAdmin.length; i++) {
+                String usernameMatriz = matrizAdmin[i][0];
+                String passwordMatriz = matrizAdmin[i][1];
 
-            if (matrizAdmin[i].length >= 2) {
-
-                if (usernameInput.equals(matrizAdmin[i][0]) && passwordInput.equals(matrizAdmin[i][1])) {
-
-                    String usernameMatriz = matrizAdmin[i][0];
-                    String passwordMatriz = matrizAdmin[i][1];
-
-                    if (usernameInput.equals(usernameMatriz) && passwordInput.equals(passwordMatriz)) {
-                        valido = true;
-                    }
-
+                if (usernameInput.trim().equals(usernameMatriz.trim()) &&
+                        passwordInput.trim().equals(passwordMatriz.trim())) {
+                    return true;
                 }
             }
         }
-        return valido;
+        return false;
     }
 }
