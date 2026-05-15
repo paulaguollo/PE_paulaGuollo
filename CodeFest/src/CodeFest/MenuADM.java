@@ -52,6 +52,8 @@ public static void menuAdmin(String[][] matrizBilhetes, String[][] matrizCartaz,
 
             case 3:
                 System.out.println("------Pesquisa de Festivaleiro------");
+                System.out.print("Por favor informe o Id do Festivaleiro: ");
+                String idCliente = input.next();
 
                 break;
 

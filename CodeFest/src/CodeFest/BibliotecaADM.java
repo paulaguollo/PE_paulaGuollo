@@ -122,6 +122,28 @@ public class BibliotecaADM {
             System.out.println("A quantidade de bilhetes vendidos é: " + matrizBilhetes.length);
             System.out.println("O Valor total faturado com os bilhetes é: " + valorTotal);
     }
+
+    public static void pesquisaFestivaleiro(String[][] matrizBilhetes) {
+
+        int idCliente;
+        boolean encontrou = false;
+        String[][] matriz = lerFicheiroParaMatriz("CodeFest/data/Festival_Bilhetes.csv", ";");
+
+        for (int i = 0; i < matriz.length; i++) {
+            if (matriz[i][1].equals(idCliente)) {
+                if (!encontrou) {
+                    System.out.println("*** Festivaleiro Encontrado ***\n");
+                    System.out.println("> Nome: " + matriz[i][2]);
+                    System.out.println("> Contacto: " + matriz[i][3]);
+                    System.out.println("> Email: " + matriz[i][4] + "\n");
+                    System.out.println("> Bilhetes: ");
+                    encontrou = true;
+                }
+                System.out.println(matriz[i][0] + " | " + matriz[i][5] + " | " + matriz[i][7]);
+            }
+        }
+        System.out.println();
+    }
 }
 
 
