@@ -29,7 +29,7 @@ public class Menus {
 
 
                 switch (opcao) {
-                    case 1: // ADM
+                    case 1: // ADM — validação
                         System.out.print("Username: ");
                         input.nextLine();
                         String usernameInput = input.nextLine();
@@ -38,13 +38,12 @@ public class Menus {
                         String passwordInput = input.nextLine();
 
                         // Valida pelo ficheiro Festival_AdminLogin.csv
-
-                        if (validarLogin(usernameInput, passwordInput)) {
-                            System.out.print("Login realizado com sucesso!\n");
+                        if (validarLogin(usernameInput, passwordInput, false)) {
+                            System.out.println("Login realizado com sucesso! Bem-vindo :)");
+                            menuAdmin(matrizMusicas, matrizBilhetes, matrizCartaz, matrizQuiz);
                         } else {
-                            System.out.print("Login invalido! Tente novamente.\n");
+                            System.out.println("Username ou password incorretos. Tente novamente.");
                         }
-
                         break;
 
                     case 2: // FESTIVALEIRO
@@ -219,10 +218,10 @@ public class Menus {
 
     public static void main(String[] args) throws FileNotFoundException {
 
-        String[][] matrizMusicas  = lerFicheiroParaMatriz("CodeFest/data/Festival_Cartaz.csv", ";");
-        String[][] matrizBilhetes = lerFicheiroParaMatriz("CodeFest/data/Festival_Bilhetes.csv", ";");
-        String[][] matrizCartaz  = lerFicheiroParaMatriz("CodeFest/data/Festival_Cartaz.csv", ";");
-        String[][] matrizQuiz = lerFicheiroParaMatriz("CodeFest/data/Festival_Quiz.csv", ";");
+        String[][] matrizMusicas  = lerFicheiroParaMatriz("CodeFest/data/Festival_Cartaz.csv", ";", false);
+        String[][] matrizBilhetes = lerFicheiroParaMatriz("CodeFest/data/Festival_Bilhetes.csv", ";", true);
+        String[][] matrizCartaz  = lerFicheiroParaMatriz("CodeFest/data/Festival_Cartaz.csv", ";", true);
+        String[][] matrizQuiz = lerFicheiroParaMatriz("CodeFest/data/Festival_Quiz.csv", ";", true);
 
         menuLogin(matrizMusicas, matrizBilhetes, matrizCartaz, matrizQuiz);
     }
