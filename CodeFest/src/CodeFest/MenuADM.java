@@ -16,7 +16,7 @@ public static void menuAdmin(String[][] matrizBilhetes, String[][] matrizCartaz,
     do {
         System.out.println("\n------------------------------------------------");
         System.out.println("----- Menu de Análise de Playlists - Admin -----");
-        System.out.println("\n\n------------------------------------------------");
+        System.out.println("\n------------------------------------------------");
         System.out.println("1. Consulta de Ficheiros");
         System.out.println("2. Total de Bilhetes Vendidos");
         System.out.println("3. Pesquisa de Festivaleiro");
@@ -39,7 +39,7 @@ public static void menuAdmin(String[][] matrizBilhetes, String[][] matrizCartaz,
 
             case 2:
                 System.out.println("------Total de Bilhetes Vendidos------");
-                totalBilhetesVendidos();
+                totalBilhetesVendidos(matrizBilhetes);
 
                 break;
 

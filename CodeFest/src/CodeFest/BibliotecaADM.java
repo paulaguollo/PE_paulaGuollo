@@ -60,22 +60,34 @@ public class BibliotecaADM {
             switch (opcao) {
                 case 1:
                     System.out.println("------Ficheiro dos Bilhetes------");
-                    lerFicheiroParaMatriz("CodeFest/data/Festival_Bilhetes.csv", ";", true);
+                    String[][] matrizBilhete = lerFicheiroParaMatriz("CodeFest/data/Festival_Bilhetes.csv", ";", false); //tem cabeçalho mas eu quero imprimir ele então coloquei false
+                    for (int i = 0; i < matrizBilhete.length; i++) {
+                        System.out.println(matrizBilhete[i][0] + " | " + matrizBilhete[i][1]+ " | " + matrizBilhete[i][2]+ " | " + matrizBilhete[i][3]+ " | " + matrizBilhete[i][4]+ " | " + matrizBilhete[i][5]+ " | " + matrizBilhete[i][6]+ " | " + matrizBilhete[i][7]);
+                    }
                     break;
 
                 case 2:
                     System.out.println("------Ficheiro do Cartaz------");
-                    lerFicheiroParaMatriz("CodeFest/data/Festival_Cartaz.csv", ";", true);
+                    String[][] matrizCartaz = lerFicheiroParaMatriz("CodeFest/data/Festival_Cartaz.csv", ";", false);
+                    for (int i = 0; i < matrizCartaz.length; i++) {
+                        System.out.println(matrizCartaz[i][0] + " | " + matrizCartaz[i][1]+ " | " + matrizCartaz[i][2]+ " | " + matrizCartaz[i][3]+ " | " + matrizCartaz[i][4]+ " | " + matrizCartaz[i][5]+ " | " + matrizCartaz[i][6]);
+                    }
                     break;
 
                 case 3:
                     System.out.println("------Ficheiro de Login do Admin------");
-                    lerFicheiroParaMatriz("CodeFest/data/Festival_AdminLogin.csv", ";", false);
+                    String[][] matrizLoginAdmin = lerFicheiroParaMatriz("CodeFest/data/Festival_AdminLogin.csv", ";", false);
+                    for (int i = 0; i < matrizLoginAdmin.length; i++) {
+                        System.out.println(matrizLoginAdmin[i][0] + " | " + matrizLoginAdmin[i][1]);
+                    }
                     break;
 
                 case 4:
                     System.out.println("------Ficheiro do Quiz------");
-                    lerFicheiroParaMatriz("CodeFest/data/Festival_Quiz.csv", ";", true);
+                    String[][] matrizQuiz = lerFicheiroParaMatriz("CodeFest/data/Festival_Quiz.csv", ";", false);
+                    for (int i = 0; i < matrizQuiz.length; i++) {
+                        System.out.println(matrizQuiz[i][0] + " | " + matrizQuiz[i][1] + " | " + matrizQuiz[i][2] + " | " + matrizQuiz[i][3] + " | " + matrizQuiz[i][4] + " | " + matrizQuiz[i][5]);
+                    }
                     break;
 
 
@@ -92,17 +104,14 @@ public class BibliotecaADM {
         } while (opcao != 0);
     }
 
-    public static void totalBilhetesVendidos() throws FileNotFoundException {
-
-
-        int totalBilhetes = contarLinhasFicheiro("CodeFest/data/Festival_Bilhetes.csv");
-        String [][] matrizBilhetes = lerFicheiroParaMatriz("CodeFest/data/Festival_Bilhetes.csv", ";", true);
+    public static void totalBilhetesVendidos(String[][] matrizBilhetes) throws FileNotFoundException {
+        
         double valorTotal = 0;
 
             for (int i = 0; i < matrizBilhetes.length; i++) {
                 valorTotal += Double.parseDouble(matrizBilhetes[i][7]);
             }
-            System.out.println("A quantidade de bilhetes vendidos é: " + totalBilhetes);
+            System.out.println("A quantidade de bilhetes vendidos é: " + matrizBilhetes.length);
             System.out.println("O Valor total faturado com os bilhetes é: " + valorTotal);
     }
 }
