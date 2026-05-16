@@ -155,10 +155,159 @@ public class BibliotecaADM {
         }
     }
 
+    /**
+     * Função para imprimir os bilhetes mais caros
+     * @param matrizBilhetes
+     */
+    public static void bilheteMaiscaro(String[][] matrizBilhetes) {
+    double maiorValor = 0;
 
+    // encontrar o maior valor
+    for (int i = 0; i < matrizBilhetes.length; i++) {
+        double valor = Double.parseDouble(matrizBilhetes[i][7]);
+        if (valor > maiorValor) {
+            maiorValor = valor;
+        }
+    }
 
+    System.out.println("\n***** BILHETE MAIS CARO *****");
+    for (int i = 0; i < matrizBilhetes.length; i++) {
+        double valor = Double.parseDouble(matrizBilhetes[i][7]);
+        if (valor == maiorValor) {
+            System.out.println(matrizBilhetes[i][5] + " | " + matrizBilhetes[i][6] + " | " + valor + " €");
+        }
+    }
 
+}
 
+    /**
+     * Função para mostrar o festivaleiro que mais gastou e os bilhetes adquiridos
+     * @param matrizBilhetes
+     */
+    public static void melhoresFestivaleiros(String[][] matrizBilhetes) {
+        double maiorTotal = 0;
+
+        // encontrar o maior total gasto
+        for (int i = 0; i < matrizBilhetes.length; i++) {
+            double totalAtual = 0;
+            int idAtual = Integer.parseInt(matrizBilhetes[i][1]);
+
+            // Somar os bilhetes deste cliente
+            for (int j = 0; j < matrizBilhetes.length; j++) {
+                if (Integer.parseInt(matrizBilhetes[j][1]) == idAtual) {
+                    totalAtual += Double.parseDouble(matrizBilhetes[j][7]);
+                }
+            }
+
+            if (totalAtual > maiorTotal) {
+                maiorTotal = totalAtual;
+            }
+        }
+
+        System.out.println("\n***** MELHORES FESTIVALEIROS *****");
+        boolean[] jaImprimiu = new boolean[matrizBilhetes.length];
+
+        for (int i = 0; i < matrizBilhetes.length; i++) {
+            if (!jaImprimiu[i]) {
+                int idAtual = Integer.parseInt(matrizBilhetes[i][1]);
+                double totalAtual = 0;
+
+                for (int j = 0; j < matrizBilhetes.length; j++) {
+                    if (Integer.parseInt(matrizBilhetes[j][1]) == idAtual) {
+                        totalAtual += Double.parseDouble(matrizBilhetes[j][7]);
+                    }
+                }
+
+                if (totalAtual == maiorTotal) {
+                    System.out.println("Nome: "        + matrizBilhetes[i][2]);
+                    System.out.println("Contacto: "    + matrizBilhetes[i][3]);
+                    System.out.println("Email: "       + matrizBilhetes[i][4]);
+                    System.out.println("Total gasto: " + totalAtual + " €");
+                    System.out.println("Bilhetes:");
+
+                    for (int j = 0; j < matrizBilhetes.length; j++) {
+                        if (Integer.parseInt(matrizBilhetes[j][1]) == idAtual) {
+                            System.out.println("- " + matrizBilhetes[j][0] + " | " + matrizBilhetes[j][5] + " | " + matrizBilhetes[j][6] + " | " + matrizBilhetes[j][7] + " €");
+                            jaImprimiu[j] = true;
+                        }
+                    }
+                    System.out.println();
+                }
+            }
+        }
+    }
+
+    /**
+     *Imprimir todos os bilhetes vendidos no dia a escolha
+     * @param matrizBilhetes
+     * @param dia
+     */
+    public static void pesquisaBilhetesPorDia(String[][] matrizBilhetes, String dia) {
+        boolean encontrou = false;
+
+        System.out.println("\n***** BILHETES PARA " + dia.toUpperCase() + " *****");
+
+        for (int i = 0; i < matrizBilhetes.length; i++) {
+            if (matrizBilhetes[i][5].equalsIgnoreCase(dia)) {
+                System.out.println(matrizBilhetes[i][0] + " | " + matrizBilhetes[i][2] + " | " + matrizBilhetes[i][3] + " | " + matrizBilhetes[i][4] + " | " + matrizBilhetes[i][6] + " | " + matrizBilhetes[i][7] + " €");
+                encontrou = true;
+            }
+        }
+
+        if (!encontrou) {
+            System.out.println("Nenhum bilhete encontrado para esse dia.");
+        }
+    }
+
+    /**
+     * Função para saber o faturamento por tipo de bilhete
+     * @param matrizBilhetes
+     * @param tipoBilhete
+     */
+    public static void receitaPorTipoBilhete(String[][] matrizBilhetes, String tipoBilhete) {
+        int quantidade = 0;
+        double total = 0;
+
+        for (int i = 0; i < matrizBilhetes.length; i++) {
+            if (matrizBilhetes[i][6].equalsIgnoreCase(tipoBilhete)) {
+                quantidade++;
+                total += Double.parseDouble(matrizBilhetes[i][7]);
+            }
+        }
+
+        if (quantidade > 0) {
+            System.out.println("\n***** RECEITA POR TIPO DE BILHETE *****");
+            System.out.println("Tipo: " + tipoBilhete);
+            System.out.println("Quantidade vendida: " + quantidade);
+            System.out.println("Total faturado: " + total + " €");
+        } else {
+            System.out.println("Tipo de bilhete não encontrado.");
+        }
+    }
+
+    /**
+     * Função para o faturamento por dia do festival
+     * @param matrizBilhetes
+     */
+    public static void receitaPorDia(String[][] matrizBilhetes) {
+        String[] dias = {"Sexta", "Sábado", "Domingo"};
+
+        System.out.println("\n***** RECEITA POR DIA *****");
+
+        for (int i = 0; i < dias.length; i++) {
+            int quantidade = 0;
+            double total = 0;
+
+            for (int j = 0; j < matrizBilhetes.length; j++) {
+                if (matrizBilhetes[j][5].trim().equalsIgnoreCase(dias[i])) {
+                    quantidade++;
+                    total += Double.parseDouble(matrizBilhetes[j][7]);
+                }
+            }
+
+            System.out.println(dias[i] + " | " + quantidade + " bilhetes | " + total + " €");
+        }
+    }
 }
 
 

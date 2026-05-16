@@ -57,28 +57,27 @@ public static void menuAdmin(String[][] matrizBilhetes, String[][] matrizCartaz,
                 break;
 
             case 4:
-                System.out.println("------Bilhete Mais Caro------");
-
+                bilheteMaiscaro(matrizBilhetes);
                 break;
 
             case 5:
-                System.out.println("------Melhores Festivaleiros------");
-
+                melhoresFestivaleiros(matrizBilhetes);
                 break;
 
             case 6:
-                System.out.println("------Pesquisa de Bilhetes por Dia------");
-
+                System.out.print("Qual é o dia que queres pesquisar? ");
+                String dia = input.next();
+                pesquisaBilhetesPorDia(matrizBilhetes, dia);
                 break;
 
             case 7:
-                System.out.println("------Receita por tipo de Bilhete------");
-
+                System.out.print("Tipo de bilhete: ");
+                String tipo = input.next();
+                receitaPorTipoBilhete(matrizBilhetes, tipo);
                 break;
 
             case 8:
-                System.out.println("------Receita por dia do Festival------");
-
+                receitaPorDia(matrizBilhetes);
                 break;
 
             case 0:
