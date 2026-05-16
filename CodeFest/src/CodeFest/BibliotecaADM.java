@@ -123,27 +123,43 @@ public class BibliotecaADM {
             System.out.println("O Valor total faturado com os bilhetes é: " + valorTotal);
     }
 
-    public static void pesquisaFestivaleiro(String[][] matrizBilhetes) {
-
-        int idCliente;
+    /**
+     * Função para mostrar os dados de um festivaleiro a escolha
+     * @param matrizBilhetes
+     * @param idCliente
+     */
+    public static void pesquisaFestivaleiro(String[][] matrizBilhetes, int idCliente) {
         boolean encontrou = false;
-        String[][] matriz = lerFicheiroParaMatriz("CodeFest/data/Festival_Bilhetes.csv", ";");
+        double totalGasto = 0;
 
-        for (int i = 0; i < matriz.length; i++) {
-            if (matriz[i][1].equals(idCliente)) {
+        for (int i = 1; i < matrizBilhetes.length; i++) { // começa em 1 para saltar o cabeçalho
+            if (Integer.parseInt(matrizBilhetes[i][1].trim()) == idCliente) {
                 if (!encontrou) {
-                    System.out.println("*** Festivaleiro Encontrado ***\n");
-                    System.out.println("> Nome: " + matriz[i][2]);
-                    System.out.println("> Contacto: " + matriz[i][3]);
-                    System.out.println("> Email: " + matriz[i][4] + "\n");
-                    System.out.println("> Bilhetes: ");
+                    System.out.println("\n***** FESTIVALEIRO ENCONTRADO *****");
+                    System.out.println("Nome: "      + matrizBilhetes[i][2]);
+                    System.out.println("Contacto: "  + matrizBilhetes[i][3]);
+                    System.out.println("Email: "     + matrizBilhetes[i][4]);
+                    System.out.println("\nBilhetes adquiridos:");
                     encontrou = true;
                 }
-                System.out.println(matriz[i][0] + " | " + matriz[i][5] + " | " + matriz[i][7]);
+
+                double valor = Double.parseDouble(matrizBilhetes[i][7]);
+                totalGasto += valor;
+                System.out.println(matrizBilhetes[i][0] + " | " + matrizBilhetes[i][5] + " | " + matrizBilhetes[i][6] + " | " + valor + " €");
             }
         }
-        System.out.println();
+        if (encontrou) {
+            System.out.println("\nTotal gasto: " + totalGasto + " €");
+        } else {
+            System.out.println("Festivaleiro não encontrado.");
+        }
     }
+
+
+
+
+
 }
+
 
 
