@@ -3,6 +3,7 @@ package CodeFest;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+import static CodeFest.BibliotecaADM.pesquisaBilhetesPorDia;
 import static CodeFest.BibliotecaFicheiros.*;
 import static CodeFest.BibliotecaFestivaleiro.*;
 import static CodeFest.BibliotecaFormatacao.*;
@@ -35,7 +36,7 @@ public class MenuFestivaleiro {
             System.out.println("0. Sair");
 
             System.out.print("Opção: ");
-            opcao = input.nextInt();
+            opcao = Integer.parseInt(input.nextLine());
 
             System.out.println("\n----------------------------------------");
 
@@ -49,23 +50,27 @@ public class MenuFestivaleiro {
                     break;
 
                 case 3:
-                    System.out.println("----------Imprimir Cartaz----------");
+                    imprimirCartazArtistas(matrizCartaz);
                     break;
 
                 case 4:
-                    System.out.println("------Imprimir Palcos Gráficos-----");
+                    menuImprimePalco();
                     break;
 
                 case 5:
-                    System.out.println("-----Imprimir Concerto mais longo-----");
+                    concertoMaisLongo(matrizCartaz);
                     break;
 
                 case 6:
-                    System.out.println("-----Imprimir Cartaz por dia-----");
+                    System.out.print("Qual é o dia que queres pesquisar? ");
+                    String dia = input.nextLine();
+                    pesquisaPorDia(matrizCartaz, dia);
                     break;
 
                 case 7:
-                    System.out.println("----Imprimir Cartaz por Género Musical----");
+                    System.out.print("Qual é o género musical que queres pesquisar? ");
+                    String genero = input.nextLine();
+                    pesquisarPorGenero(matrizCartaz, genero);
                     break;
 
                 case 8:

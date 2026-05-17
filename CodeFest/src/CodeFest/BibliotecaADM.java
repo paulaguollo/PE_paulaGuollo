@@ -133,7 +133,7 @@ public class BibliotecaADM {
         double totalGasto = 0;
 
         for (int i = 1; i < matrizBilhetes.length; i++) { // começa em 1 para saltar o cabeçalho
-            if (Integer.parseInt(matrizBilhetes[i][1].trim()) == idCliente) {
+            if (Integer.parseInt(matrizBilhetes[i][1]) == idCliente) {
                 if (!encontrou) {
                     System.out.println("\n***** FESTIVALEIRO ENCONTRADO *****");
                     System.out.println("Nome: "      + matrizBilhetes[i][2]);
@@ -299,7 +299,7 @@ public class BibliotecaADM {
             double total = 0;
 
             for (int j = 0; j < matrizBilhetes.length; j++) {
-                if (matrizBilhetes[j][5].trim().equalsIgnoreCase(dias[i])) {
+                if (matrizBilhetes[j][5].equalsIgnoreCase(dias[i])) {
                     quantidade++;
                     total += Double.parseDouble(matrizBilhetes[j][7]);
                 }
