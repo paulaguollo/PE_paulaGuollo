@@ -146,10 +146,80 @@ public class BibliotecaFestivaleiro {
         System.out.println();
     }
 
-       /*
-            System.out.println("1. Novo Registro");
-            System.out.println("2. Procurar lugares de Campismo");
-            System.out.println("8. Quiz musical");
-           */
+    /**
+     * Função para realizar login-novo registro de festivaleiro
+     * @param matrizBilhetes
+     * @param nome
+     * @param contacto
+     * @param email
+     */
+    public static void novoRegisto(String[][] matrizBilhetes, String nome, String contacto, String email) {
+
+        // encontra o maior idCliente existente para gerar o novo id
+        int maiorId = 0;
+        for (int linha = 0; linha < matrizBilhetes.length; linha++) {
+            int idAtual = Integer.parseInt(matrizBilhetes[linha][1]);
+            if (idAtual > maiorId) {
+                maiorId = idAtual;
+            }
+        }
+        int novoId = maiorId + 1;
+    }
+
+    /**
+     * Função para fazer um quiz interativo com o festivaleiro
+     * @param matrizQuiz
+     * @param input de numero inteiro como resposta a escolher
+     */
+    public static void quizMusical(String[][] matrizQuiz, Scanner input) {
+        System.out.println("\n***** QUIZ MUSICAL *****");
+        int corretas = 0;
+
+        for (int linha = 0; linha < matrizQuiz.length; linha++) {
+            System.out.println("\nPergunta " + (linha + 1) + ":");
+            System.out.println(matrizQuiz[linha][0]); //pergunta
+            System.out.println("1. " + matrizQuiz[linha][1]); //opção 1
+            System.out.println("2. " + matrizQuiz[linha][2]); //opção 2
+            System.out.println("3. " + matrizQuiz[linha][3]); //opção 3
+            System.out.println("4. " + matrizQuiz[linha][4]); //opção 4
+
+            System.out.print("Digite a sua Resposta? ");
+            String resposta = input.nextLine();
+
+            if (resposta.equals(matrizQuiz[linha][5])) {
+                System.out.println("Resposta correta!");
+                corretas++;
+            } else {
+                System.out.println("Resposta errada! A resposta correta era: " + matrizQuiz[linha][5]);
+            }
+        }
+
+        System.out.println("\nQuiz Terminado\n");
+        System.out.println("Respostas Corretas: " + corretas + "/" + matrizQuiz.length); //pontuação
+    }
+
+    /**
+     * Função para saber os lugares de compismo disponíveis
+     * A considerar que os lugares vao até 300
+     * A disponibilidade são todos os números triangulares múltiplos de 5
+     */
+    public static void lugaresCampismo() {
+        System.out.println("\n***** LUGARES DE CAMPISMO DISPONÍVEIS *****");
+
+        int triangular = 0;
+        int n = 1;
+
+        while (triangular <= 300) {
+            triangular = triangular + n; // soma os naturais consecutivos
+            n++;
+
+            if (triangular <= 300 && triangular % 5 == 0) { // a considerar que precisa ser multiplo de 5
+                System.out.println("Lugar: " + triangular);
+            }
+        }
+        System.out.println();
+    }
+
+
 }
 

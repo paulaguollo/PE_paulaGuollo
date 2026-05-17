@@ -43,10 +43,19 @@ public class MenuFestivaleiro {
             switch (opcao) {
                 case 1:
                     System.out.println("----------Novo Registro----------");
+                    System.out.print("Insira Nome: ");
+                    String nome = input.nextLine();
+                    System.out.print("Insira Contacto: ");
+                    String contacto = input.nextLine();
+                    System.out.print("Insira Email: ");
+                    String email = input.nextLine();
+                    System.out.println("Festivaleiro Inserido com Sucesso: " + nome + " | " + contacto + " | " + email);
+                    novoRegisto(matrizBilhetes, nome, contacto, email);
                     break;
 
+
                 case 2:
-                    System.out.println("-----Procurar lugares de Campismo------");
+                    lugaresCampismo();
                     break;
 
                 case 3:
@@ -74,11 +83,10 @@ public class MenuFestivaleiro {
                     break;
 
                 case 8:
-                    System.out.println("------Quiz musical-----");
+                    quizMusical(matrizQuiz, input);
                     break;
 
                 case 0:
-                    System.out.println("----------Sair----------");
                     copyright();
                     primaEnter();
                     break;

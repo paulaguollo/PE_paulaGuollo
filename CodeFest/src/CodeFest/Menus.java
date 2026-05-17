@@ -58,7 +58,6 @@ public class Menus {
                         break;
 
                     case 0:
-                        System.out.println("0. Sair");
                         System.out.println("Espero que se divirta no nossa festival! Até jazz :)");
                         copyright();
                         primaEnter();
