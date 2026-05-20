@@ -21,11 +21,11 @@ public class MenuADM {
 public static void menuAdmin(String[][] matrizBilhetes, String[][] matrizCartaz, String[][] matrizQuiz,  String[][] matrizAdmin) throws FileNotFoundException {
     Scanner input = new Scanner(System.in);
 
-    int opcao;
+    String opcao;
     do {
         System.out.println("\n------------------------------------------------");
-        System.out.println("----- Menu de Análise de Playlists - Admin -------");
-        System.out.println("\n------------------------------------------------");
+        System.out.println("                  Menu do Admin                   ");
+        System.out.println("------------------------------------------------");
         System.out.println("1. Consulta de Ficheiros");
         System.out.println("2. Total de Bilhetes Vendidos");
         System.out.println("3. Pesquisa de Festivaleiro");
@@ -36,51 +36,52 @@ public static void menuAdmin(String[][] matrizBilhetes, String[][] matrizCartaz,
         System.out.println("8. Receita por dia do Festival");
         System.out.println("0. Sair");
 
-        System.out.print("Opção: ");
-        opcao = input.nextInt();
+        System.out.print("\nEscolha a Opção: ");
+        opcao = input.next();
+
 
         System.out.println("\n------------------------------------------------");
 
         switch (opcao) {
-            case 1:
+            case "1":
                 menuConsultaFicheiro();
                 break;
 
-            case 2:
+            case "2":
                 totalBilhetesVendidos(matrizBilhetes);
                 break;
 
-            case 3:
+            case "3":
                 System.out.print("Por favor informe o Id do Festivaleiro: ");
                 int idCliente = input.nextInt();
                 pesquisaFestivaleiro(matrizBilhetes, idCliente);
                 break;
 
-            case 4:
+            case "4":
                 bilheteMaiscaro(matrizBilhetes);
                 break;
 
-            case 5:
+            case "5":
                 melhoresFestivaleiros(matrizBilhetes);
                 break;
 
-            case 6:
+            case "6":
                 System.out.print("Qual é o dia que queres pesquisar? ");
                 String dia = input.next();
                 pesquisaBilhetesPorDia(matrizBilhetes, dia);
                 break;
 
-            case 7:
+            case "7":
                 System.out.print("Tipo de bilhete: ");
                 String tipo = input.next();
                 receitaPorTipoBilhete(matrizBilhetes, tipo);
                 break;
 
-            case 8:
+            case "8":
                 receitaPorDia(matrizBilhetes);
                 break;
 
-            case 0:
+            case "0":
                 copyright();
                 primaEnter();
                 break;
@@ -90,6 +91,6 @@ public static void menuAdmin(String[][] matrizBilhetes, String[][] matrizCartaz,
                 break;
         }
 
-    } while (opcao != 0);
+    } while (!opcao.equals("0"));
 }
 }

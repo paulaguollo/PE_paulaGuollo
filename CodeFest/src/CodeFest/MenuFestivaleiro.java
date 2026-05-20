@@ -21,10 +21,12 @@ public class MenuFestivaleiro {
      */
     public static void menuCliente(String[][] matrizBilhetes, String[][] matrizCartaz, String[][] matrizQuiz, String[][] matrizAdmin) throws FileNotFoundException {
         Scanner input = new Scanner(System.in);
-        int opcao;
+        String opcao;
 
         do {
-            System.out.println("----- Menu de Festivaleiro :) -----");
+            System.out.println("\n------------------------------------------------");
+            System.out.println("             Menu de Festivaleiro :)            ");
+            System.out.println("------------------------------------------------");
             System.out.println("1. Novo Registro");
             System.out.println("2. Procurar lugares de Campismo");
             System.out.println("3. Imprimir Cartaz");
@@ -35,14 +37,14 @@ public class MenuFestivaleiro {
             System.out.println("8. Quiz musical");
             System.out.println("0. Sair");
 
-            System.out.print("Opção: ");
-            opcao = Integer.parseInt(input.nextLine());
+            System.out.print("\nEscolha a Opção: ");
+            opcao = input.next();
 
-            System.out.println("\n----------------------------------------");
+            System.out.println("\n------------------------------------------");
 
             switch (opcao) {
-                case 1:
-                    System.out.println("----------Novo Registro----------");
+                case "1":
+                    System.out.println("---------------Novo Registro---------------");
                     System.out.print("Insira Nome: ");
                     String nome = input.nextLine();
                     System.out.print("Insira Contacto: ");
@@ -54,39 +56,55 @@ public class MenuFestivaleiro {
                     break;
 
 
-                case 2:
+                case "2":
                     lugaresCampismo();
                     break;
 
-                case 3:
+                case "3":
                     imprimirCartazArtistas(matrizCartaz);
                     break;
 
-                case 4:
+                case "4":
                     menuImprimePalco();
                     break;
 
-                case 5:
+                case "5":
                     concertoMaisLongo(matrizCartaz);
                     break;
 
-                case 6:
-                    System.out.print("Qual é o dia que queres pesquisar? ");
+                case "6":
+                    System.out.print("O festival vai acontecer sexta, sábado e domingo\n");
+                    System.out.print("\nQual é o dia que queres pesquisar? ");
                     String dia = input.nextLine();
                     pesquisaPorDia(matrizCartaz, dia);
                     break;
 
-                case 7:
-                    System.out.print("Qual é o género musical que queres pesquisar? ");
+                case "7":
+                    System.out.print("Qual é o género musical que queres pesquisar?\n");
+                    System.out.println("Podes escolher Coro\n" +
+                            "Rancho\n" +
+                            "Pimba\n" +
+                            "Popular\n" +
+                            "Pop\n" +
+                            "R&B\n" +
+                            "Eletrónica\n" +
+                            "Pop Alternativo\n" +
+                            "Rock\n" +
+                            "Rock Clássico\n" +
+                            "Hard Rock\n" +
+                            "Heavy Metal\n" +
+                            "Metal Industrial\n" +
+                            "Rock Alternativo");
+                    System.out.print("\nQual queres saber? ");
                     String genero = input.nextLine();
                     pesquisarPorGenero(matrizCartaz, genero);
                     break;
 
-                case 8:
+                case "8":
                     quizMusical(matrizQuiz, input);
                     break;
 
-                case 0:
+                case "0":
                     copyright();
                     primaEnter();
                     break;
@@ -96,7 +114,7 @@ public class MenuFestivaleiro {
                     break;
             }
 
-        } while (opcao != 0);
+        } while (!opcao.equals("0"));
 
     }
 }

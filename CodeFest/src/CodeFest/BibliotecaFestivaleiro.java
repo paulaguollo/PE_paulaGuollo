@@ -38,40 +38,40 @@ public class BibliotecaFestivaleiro {
     public static void menuImprimePalco() throws FileNotFoundException {
         Scanner input = new Scanner(System.in);
 
-        int opcao;
+        String opcao;
         do {
             System.out.println("\n-------------------------------");
-            System.out.println("----- Qual palco queres ver?-----");
+            System.out.println("----- Qual palco queres ver?-----\n");
             System.out.println("1. Palco Main :)");
             System.out.println("2. Palco Java <3");
             System.out.println("3. Palco Commit o/");
             System.out.println("0. Nenhum destes. Quero Sair");
 
-            System.out.print("Opção: ");
-            opcao = input.nextInt();
+            System.out.print("Escolha a Opção: ");
+            opcao = input.next();
 
-            System.out.println("\n------------------------------------------------");
+            System.out.println();
 
             switch (opcao) {
-                case 1:
+                case "1":
                     imprimirFicheiroNaConsola("CodeFest/data/Palco_Main.txt");
                     break;
-                case 2:
+                case "2":
                     imprimirFicheiroNaConsola("CodeFest/data/Palco_Java.txt");
                     break;
-                case 3:
+                case "3":
                     imprimirFicheiroNaConsola("CodeFest/data/Palco_Main.txt");
                     break;
-                case 0:
+                case "0":
                     copyright();
                     primaEnter();
                     break;
                 default:
-                    System.out.println("Opção Inválida: " + opcao + "Tenta um dos nossos 3 palcos");
+                    System.out.println("Opção Inválida: " + opcao + " Tenta um dos nossos 3 palcos");
                     break;
             }
 
-        } while (opcao != 0);
+        } while (!opcao.equals("0"));
     }
 
     /**

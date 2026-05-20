@@ -22,21 +22,22 @@ public class Menus {
         public static void menuLogin( String[][] matrizBilhetes,String[][] matrizCartaz, String[][] matrizQuiz, String[][] matrizAdmin ) throws FileNotFoundException {
             Scanner input = new Scanner(System.in);
 
-            int opcao;
+            // int opcao;
+            String opcao;
             do {
-                System.out.println("\n------ Bem-vindo ao CodeFest :) ------");
+                System.out.println("\n----------- Bem-vindo ao CodeFest :) -----------");
                 System.out.println("1. Admin");
                 System.out.println("2. Festivaleiro");
                 System.out.println("0. Sair");
 
-                System.out.print("Opção: ");
-                opcao = input.nextInt();
+                System.out.print("\nEscolha a Opção: ");
+                opcao = input.next();
 
                 System.out.println("\n------------------------------------------");
 
 
                 switch (opcao) {
-                    case 1: // ADM — validação
+                    case "1": // ADM — validação
                         System.out.print("Username: ");
                         input.nextLine();
                         String usernameInput = input.nextLine();
@@ -53,12 +54,12 @@ public class Menus {
                         }
                         break;
 
-                    case 2: // FESTIVALEIRO
+                    case "2": // FESTIVALEIRO
                         menuCliente(matrizBilhetes, matrizCartaz, matrizQuiz, matrizAdmin);
                         break;
 
-                    case 0:
-                        System.out.println("Espero que se divirta no nossa festival! Até jazz :)");
+                    case "0":
+                        System.out.println("\nEspero que se divirta no nossa festival! Até jazz :)\n");
                         copyright();
                         primaEnter();
                         break;
@@ -68,7 +69,7 @@ public class Menus {
                         break;
                 }
 
-            } while (opcao != 0);
+            } while (!opcao.equals("0"));
         }
 
     /**

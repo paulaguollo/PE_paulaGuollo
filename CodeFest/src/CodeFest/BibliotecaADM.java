@@ -45,48 +45,47 @@ public class BibliotecaADM {
     public static void menuConsultaFicheiro() throws FileNotFoundException {
         Scanner input = new Scanner(System.in);
 
-        int opcao;
+        String opcao;
         do {
-            System.out.println("\n------------------------------------------------");
-            System.out.println("----- Escolha o Ficheiro que quer consultar -----");
+            System.out.println("\nEscolha o Ficheiro que quer consultar\n");
             System.out.println("1. Bilhetes");
             System.out.println("2. Cartaz");
             System.out.println("3. Login do Admin");
             System.out.println("4. Quiz");
             System.out.println("0. Sair");
 
-            System.out.print("Opção: ");
-            opcao = input.nextInt();
+            System.out.print("\nEscolha a Opção: ");
+            opcao = input.next();
 
-            System.out.println("\n------------------------------------------------");
+            System.out.println();
 
             switch (opcao) {
-                case 1:
-                    System.out.println("------Ficheiro dos Bilhetes------");
+                case "1":
+                    System.out.println("\n---------------------Ficheiro dos Bilhetes---------------------\n");
                     String[][] matrizBilhete = lerFicheiroParaMatriz("CodeFest/data/Festival_Bilhetes.csv", ";", false); //tem cabeçalho mas eu quero imprimir ele então coloquei false
                     for (int i = 0; i < matrizBilhete.length; i++) {
                         System.out.println(matrizBilhete[i][0] + " | " + matrizBilhete[i][1]+ " | " + matrizBilhete[i][2]+ " | " + matrizBilhete[i][3]+ " | " + matrizBilhete[i][4]+ " | " + matrizBilhete[i][5]+ " | " + matrizBilhete[i][6]+ " | " + matrizBilhete[i][7]);
                     }
                     break;
 
-                case 2:
-                    System.out.println("------Ficheiro do Cartaz------");
+                case "2":
+                    System.out.println("\n---------------------Ficheiro do Cartaz---------------------\n");
                     String[][] matrizCartaz = lerFicheiroParaMatriz("CodeFest/data/Festival_Cartaz.csv", ";", false);
                     for (int i = 0; i < matrizCartaz.length; i++) {
                         System.out.println(matrizCartaz[i][0] + " | " + matrizCartaz[i][1]+ " | " + matrizCartaz[i][2]+ " | " + matrizCartaz[i][3]+ " | " + matrizCartaz[i][4]+ " | " + matrizCartaz[i][5]+ " | " + matrizCartaz[i][6]);
                     }
                     break;
 
-                case 3:
-                    System.out.println("------Ficheiro de Login do Admin------");
+                case "3":
+                    System.out.println("\n---------------------Ficheiro de Login do Admin---------------------\n");
                     String[][] matrizLoginAdmin = lerFicheiroParaMatriz("CodeFest/data/Festival_AdminLogin.csv", ";", false);
                     for (int i = 0; i < matrizLoginAdmin.length; i++) {
                         System.out.println(matrizLoginAdmin[i][0] + " | " + matrizLoginAdmin[i][1]);
                     }
                     break;
 
-                case 4:
-                    System.out.println("------Ficheiro do Quiz------");
+                case "4":
+                    System.out.println("\n---------------------Ficheiro do Quiz---------------------\n");
                     String[][] matrizQuiz = lerFicheiroParaMatriz("CodeFest/data/Festival_Quiz.csv", ";", false);
                     for (int i = 0; i < matrizQuiz.length; i++) {
                         System.out.println(matrizQuiz[i][0] + " | " + matrizQuiz[i][1] + " | " + matrizQuiz[i][2] + " | " + matrizQuiz[i][3] + " | " + matrizQuiz[i][4] + " | " + matrizQuiz[i][5]);
@@ -94,7 +93,7 @@ public class BibliotecaADM {
                     break;
 
 
-                case 0:
+                case "0":
                     copyright();
                     primaEnter();
                     break;
@@ -104,7 +103,7 @@ public class BibliotecaADM {
                     break;
             }
 
-        } while (opcao != 0);
+        } while (!opcao.equals("0"));
     }
 
     /**
