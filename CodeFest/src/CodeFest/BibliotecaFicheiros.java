@@ -4,13 +4,18 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+/**
+ * Biblioteca de utilitários para leitura de ficheiros.
+ * Fornece métodos para contar linhas/colunas e carregar ficheiros CSV para matrizes de Strings.
+ */
 public class BibliotecaFicheiros {
+
     /**
-     * Função que conta o número de linhas de um ficheiro
+     * Conta o número total de linhas de um ficheiro.
      *
-     * @param caminhoFicheiro Caminho para o ficheiro
-     * @return Número de linhas totais
-     * @throws FileNotFoundException Caso o ficheiro não exista
+     * @param caminhoFicheiro Caminho relativo ou absoluto para o ficheiro
+     * @return Número total de linhas encontradas
+     * @throws FileNotFoundException Caso o ficheiro não exista no caminho indicado
      */
     public static int contarLinhasFicheiro(String caminhoFicheiro) throws FileNotFoundException {
 
@@ -33,17 +38,20 @@ public class BibliotecaFicheiros {
     }
 
     /**
-     * Função para contar as colunas para uma matriz
-     * @param caminhoFicheiro
-     * @param delimitador
-     * @return Matriz completa
-     * @throws FileNotFoundException
+     * Conta o número de colunas de um ficheiro com base no delimitador indicado.
+     * Utiliza a primeira linha do ficheiro para determinar o número de colunas.
+     *
+     * @param caminhoFicheiro Caminho relativo ou absoluto para o ficheiro
+     * @param delimitador     Separador de colunas (ex: ";", ",")
+     * @return Número de colunas encontradas na primeira linha
+     * @throws FileNotFoundException Caso o ficheiro não exista no caminho indicado
      */
     public static int contarColunasFicheiro(String caminhoFicheiro, String delimitador) throws FileNotFoundException {
 
         File ficheiro = new File(caminhoFicheiro);
         Scanner sc = new Scanner(ficheiro);
 
+        // Lê a primeira linha e divide pelo delimitador para contar as colunas
         String linha = sc.nextLine();
         String[] linhaSeparada = linha.split(delimitador);
 
@@ -53,17 +61,20 @@ public class BibliotecaFicheiros {
     }
 
     /**
-     * Função para ler um ficheiro para Matriz
-     * @param caminhoFicheiro
-     * @param delimitador
-     * @param temCabecalho
-     * @return matriz completa com ou sem cabeçalho
-     * @throws FileNotFoundException
+     * Lê um ficheiro CSV e carrega o seu conteúdo para uma matriz de Strings bidimensional.
+     * Permite opcionalmente saltar o cabeçalho (primeira linha).
+     *
+     * @param caminhoFicheiro Caminho relativo ou absoluto para o ficheiro
+     * @param delimitador     Separador de colunas (ex: ";", ",")
+     * @param temCabecalho    Se verdadeiro, a primeira linha (cabeçalho) é ignorada
+     * @return Matriz String[][] com o conteúdo do ficheiro
+     * @throws FileNotFoundException Caso o ficheiro não exista no caminho indicado
      */
     public static String[][] lerFicheiroParaMatriz(String caminhoFicheiro, String delimitador, boolean temCabecalho) throws FileNotFoundException {
 
         int numeroLinhas = contarLinhasFicheiro(caminhoFicheiro);
 
+        // Se tem cabeçalho, descontamos uma linha para não incluí-lo nos dados
         if(temCabecalho) {
             // Avançar o cabeçalho
            numeroLinhas--;
@@ -78,11 +89,12 @@ public class BibliotecaFicheiros {
         File ficheiro = new File(caminhoFicheiro);
         Scanner sc = new Scanner(ficheiro);
 
+        // Salta o cabeçalho, se necessário
         if(temCabecalho) {
-            // Avançar o cabeçalho
             sc.nextLine();
         }
 
+        // Preenche a matriz linha a linha, dividindo cada linha pelo delimitador
         while (sc.hasNextLine()) {
             String linha = sc.nextLine();
             String[] linhaSeparada = linha.split(delimitador);
