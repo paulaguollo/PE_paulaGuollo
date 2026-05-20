@@ -45,11 +45,11 @@ public class MenuFestivaleiro {
             switch (opcao) {
                 case "1":
                     System.out.println("---------------Novo Registro---------------");
-                    System.out.print("Insira Nome: ");
+                    System.out.print("Insira Nome: \n");
                     String nome = input.nextLine();
-                    System.out.print("Insira Contacto: ");
+                    System.out.print("Insira Contacto: \n");
                     String contacto = input.nextLine();
-                    System.out.print("Insira Email: ");
+                    System.out.print("Insira Email: \n");
                     String email = input.nextLine();
                     System.out.println("Festivaleiro Inserido com Sucesso: " + nome + " | " + contacto + " | " + email);
                     novoRegisto(matrizBilhetes, nome, contacto, email);
@@ -75,12 +75,12 @@ public class MenuFestivaleiro {
                 case "6":
                     System.out.print("O festival vai acontecer sexta, sábado e domingo\n");
                     System.out.print("\nQual é o dia que queres pesquisar? ");
-                    String dia = input.nextLine();
+                    String dia = input.next();
                     pesquisaPorDia(matrizCartaz, dia);
                     break;
 
                 case "7":
-                    System.out.print("Qual é o género musical que queres pesquisar?\n");
+                    System.out.print("Temos todos estes géneros musicais no CodeFest\n");
                     System.out.println("Podes escolher Coro\n" +
                             "Rancho\n" +
                             "Pimba\n" +
@@ -95,8 +95,8 @@ public class MenuFestivaleiro {
                             "Heavy Metal\n" +
                             "Metal Industrial\n" +
                             "Rock Alternativo");
-                    System.out.print("\nQual queres saber? ");
-                    String genero = input.nextLine();
+                    System.out.print("\nQual queres pesquisar? ");
+                    String genero = input.next();
                     pesquisarPorGenero(matrizCartaz, genero);
                     break;
 

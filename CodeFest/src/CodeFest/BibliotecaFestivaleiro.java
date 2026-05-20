@@ -82,7 +82,7 @@ public class BibliotecaFestivaleiro {
     public static void pesquisaPorDia(String[][] matrizCartaz, String dia) {
         boolean encontrou = false;
 
-        System.out.println("\n***** CONCERTOS No DIA DE " + dia.toUpperCase() + " *****");
+        System.out.println("\n***** CONCERTOS NO DIA DE " + dia.toUpperCase() + " *****");
         for (int linha = 0; linha < matrizCartaz.length; linha++) {
             if (matrizCartaz[linha][1].equalsIgnoreCase(dia)) {
                 // [2]=hora, [3]=palco, [4]=artista, [5]=genero, [6]=duracao

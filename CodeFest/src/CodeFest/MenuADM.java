@@ -25,7 +25,7 @@ public static void menuAdmin(String[][] matrizBilhetes, String[][] matrizCartaz,
     do {
         System.out.println("\n------------------------------------------------");
         System.out.println("                  Menu do Admin                   ");
-        System.out.println("------------------------------------------------");
+        System.out.println("------------------------------------------------\n");
         System.out.println("1. Consulta de Ficheiros");
         System.out.println("2. Total de Bilhetes Vendidos");
         System.out.println("3. Pesquisa de Festivaleiro");
@@ -53,7 +53,7 @@ public static void menuAdmin(String[][] matrizBilhetes, String[][] matrizCartaz,
 
             case "3":
                 System.out.print("Por favor informe o Id do Festivaleiro: ");
-                int idCliente = input.nextInt();
+                String idCliente = input.next();
                 pesquisaFestivaleiro(matrizBilhetes, idCliente);
                 break;
 
@@ -66,13 +66,13 @@ public static void menuAdmin(String[][] matrizBilhetes, String[][] matrizCartaz,
                 break;
 
             case "6":
-                System.out.print("Qual é o dia que queres pesquisar? ");
+                System.out.print("Qual é o dia que queres pesquisar? sexta, sábado ou domingo: ");
                 String dia = input.next();
                 pesquisaBilhetesPorDia(matrizBilhetes, dia);
                 break;
 
             case "7":
-                System.out.print("Tipo de bilhete: ");
+                System.out.print("Qual é o tipo de bilhete que queres pesquisar? backstage, vip ou diário: ");
                 String tipo = input.next();
                 receitaPorTipoBilhete(matrizBilhetes, tipo);
                 break;

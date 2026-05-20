@@ -25,7 +25,7 @@ public class Menus {
             // int opcao;
             String opcao;
             do {
-                System.out.println("\n----------- Bem-vindo ao CodeFest :) -----------");
+                System.out.println("\n----------- Bem-vindo ao CodeFest :) -----------\n");
                 System.out.println("1. Admin");
                 System.out.println("2. Festivaleiro");
                 System.out.println("0. Sair");

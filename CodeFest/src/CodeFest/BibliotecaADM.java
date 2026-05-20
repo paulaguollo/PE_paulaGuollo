@@ -127,12 +127,12 @@ public class BibliotecaADM {
      * @param matrizBilhetes
      * @param idCliente
      */
-    public static void pesquisaFestivaleiro(String[][] matrizBilhetes, int idCliente) {
+    public static void pesquisaFestivaleiro(String[][] matrizBilhetes, String idCliente) {
         boolean encontrou = false;
         double totalGasto = 0;
 
         for (int i = 1; i < matrizBilhetes.length; i++) { // começa em 1 para saltar o cabeçalho
-            if (Integer.parseInt(matrizBilhetes[i][1]) == idCliente) {
+            if ((matrizBilhetes[i][1]).equals(idCliente)) {
                 if (!encontrou) {
                     System.out.println("\n***** FESTIVALEIRO ENCONTRADO *****");
                     System.out.println("Nome: "      + matrizBilhetes[i][2]);
