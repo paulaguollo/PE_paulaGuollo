@@ -82,7 +82,6 @@ public class Menus {
             } while (!opcao.equals("0"));
         }
 
-
     /**
      * Ponto de entrada da aplicação CodeFest.
      * Carrega todos os ficheiros de dados para matrizes e inicia o menu de login.

@@ -147,7 +147,7 @@ public class BibliotecaADM {
         boolean encontrou = false;
         double totalGasto = 0;
 
-        for (int i = 1; i < matrizBilhetes.length; i++) { // começa em 1 para saltar o cabeçalho
+        for (int i = 0; i < matrizBilhetes.length; i++) { // começa em 1 para saltar o cabeçalho
 
             // Compara o idCliente (coluna 1) com o valor pesquisado
             if ((matrizBilhetes[i][1]).equals(idCliente)) {

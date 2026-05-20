@@ -79,14 +79,16 @@ public static void menuAdmin(String[][] matrizBilhetes, String[][] matrizCartaz,
 
             case "6":
                 // Lista todos os bilhetes vendidos para um dia específico
-                System.out.print("Qual é o dia que queres pesquisar? sexta, sábado ou domingo: ");
+                System.out.println("Qual é o dia que queres pesquisar?");
+                System.out.print("Escolha entre sexta, sábado ou domingo: ");
                 String dia = input.next();
                 pesquisaBilhetesPorDia(matrizBilhetes, dia);
                 break;
 
             case "7":
                 // Receita filtrada por tipo de bilhete (Diário, VIP, Backstage)
-                System.out.print("Qual é o tipo de bilhete que queres pesquisar? backstage, vip ou diário: ");
+                System.out.println("Qual é o tipo de bilhete que queres pesquisar?");
+                System.out.print("Escolha entre backstage, vip ou diário: ");
                 String tipo = input.next();
                 receitaPorTipoBilhete(matrizBilhetes, tipo);
                 break;
