@@ -170,30 +170,6 @@ public class BibliotecaFestivaleiro {
     }
 
     /**
-     * Simula o registo de um novo festivaleiro.
-     * Gera automaticamente um novo ID de cliente com base no maior ID existente.
-     * Nota: este método é auxiliar — a confirmação e impressão são feitas no menu.
-     *
-     * @param matrizBilhetes Matriz com os dados dos bilhetes (para calcular o novo ID)
-     * @param nome           Nome do novo festivaleiro
-     * @param contacto       Contacto telefónico do novo festivaleiro
-     * @param email          Email do novo festivaleiro
-     */
-    public static void novoRegisto(String[][] matrizBilhetes, String nome, String contacto, String email) {
-
-        // Encontra o maior idCliente existente para gerar o novo id
-        int maiorId = 0;
-        for (int linha = 0; linha < matrizBilhetes.length; linha++) {
-            int idAtual = Integer.parseInt(matrizBilhetes[linha][1]);
-            if (idAtual > maiorId) {
-                maiorId = idAtual;
-            }
-        }
-        // O novo ID seria maiorId + 1 (registo apenas simulado em memória)
-        int novoId = maiorId + 1;
-    }
-
-    /**
      * Implementa um quiz musical interativo com base no ficheiro Festival_Quiz.csv.
      * Para cada pergunta, apresenta as quatro opções e valida a resposta do utilizador.
      * No final, apresenta a pontuação obtida.

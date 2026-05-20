@@ -55,7 +55,7 @@ public class Menus {
 
                         // Valida as credenciais pelo ficheiro Festival_AdminLogin.csv
                         if (validarLogin(usernameInput, passwordInput, matrizAdmin)) {
-                            System.out.println("Login realizado com sucesso! Bem-vindo, " +usernameInput + ":)");
+                            System.out.println("Login realizado com sucesso! Bem-vindo, " +usernameInput + " :)");
                             menuAdmin(matrizBilhetes, matrizCartaz, matrizQuiz, matrizAdmin);
                         } else {
                             System.out.println("Username ou password incorretos. Tente novamente.");
