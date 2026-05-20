@@ -2,27 +2,35 @@ package CodeFest;
 
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-
 import static CodeFest.BibliotecaFicheiros.*;
 import static CodeFest.BibliotecaFormatacao.*;
 
+/**
+ * Biblioteca de funções administrativas do festival CodeFest.
+ * Contém métodos para validação de login, consulta de ficheiros,
+ * análise de bilhetes, pesquisa de festivaleiros e relatórios de receitas.
+ */
 public class BibliotecaADM {
 
     /**
-     * Função para validar Login
+     * Valida as credenciais de login do administrador comparando com os dados
+     * carregados do ficheiro Festival_AdminLogin.csv.
      *
-     * @param usernameInput - username
-     * @param passwordInput - senha
-     * @return Validação para seguir para o Menu de escolhas
-     * @throws FileNotFoundException Caso o ficheiro não exista
+     * @param usernameInput  Username introduzido pelo utilizador
+     * @param passwordInput  Password introduzida pelo utilizador
+     * @param matrizAdmin    Matriz com as credenciais válidas (username;password)
+     * @return true se as credenciais forem válidas, false caso contrário
+     * @throws FileNotFoundException Caso o ficheiro de admin não exista
      */
     public static boolean validarLogin(String usernameInput, String passwordInput, String[][] matrizAdmin) throws FileNotFoundException {
 
-
+        // Percorre todas as linhas da matriz de credenciais
         for (int i = 0; i < matrizAdmin.length; i++) {
 
+            // Garante que a linha tem pelo menos username e password
             if (matrizAdmin[i].length >= 2) {
 
+                // Compara directamente username e password com os valores do ficheiro
                 if (usernameInput.equals(matrizAdmin[i][0]) && passwordInput.equals(matrizAdmin[i][1])) {
 
                     String usernameMatriz = matrizAdmin[i][0];
@@ -30,7 +38,7 @@ public class BibliotecaADM {
 
 
                     if (usernameInput.equals(usernameMatriz) && passwordInput.equals(passwordMatriz)) {
-                        return true;
+                        return true; // Credenciais válidas
                     }
                 }
             }
@@ -39,8 +47,10 @@ public class BibliotecaADM {
     }
 
     /**
-     * Função com o menu para escolha de ficheiros
-     * @throws FileNotFoundException
+     * Apresenta um submenu que permite ao admin escolher e visualizar
+     * o conteúdo de um dos ficheiros CSV do sistema.
+     *
+     * @throws FileNotFoundException Caso algum dos ficheiros CSV não exista
      */
     public static void menuConsultaFicheiro() throws FileNotFoundException {
         Scanner input = new Scanner(System.in);
@@ -61,6 +71,7 @@ public class BibliotecaADM {
 
             switch (opcao) {
                 case "1":
+                    // Imprime o ficheiro de bilhetes com cabeçalho (false = não salta cabeçalho)
                     System.out.println("\n---------------------Ficheiro dos Bilhetes---------------------\n");
                     String[][] matrizBilhete = lerFicheiroParaMatriz("CodeFest/data/Festival_Bilhetes.csv", ";", false); //tem cabeçalho mas eu quero imprimir ele então coloquei false
                     for (int i = 0; i < matrizBilhete.length; i++) {
@@ -94,6 +105,7 @@ public class BibliotecaADM {
 
 
                 case "0":
+                    // Ao sair do submenu, mostra copyright e aguarda Enter
                     copyright();
                     primaEnter();
                     break;
@@ -107,14 +119,16 @@ public class BibliotecaADM {
     }
 
     /**
-     * Função para saber a quantidade total de bilhetes vendidos e o valor faturado
-     * @param matrizBilhetes
-     * @throws FileNotFoundException
+     * Calcula e imprime o número total de bilhetes vendidos e o valor total faturado pelo festival.
+     * Percorre toda a matriz de bilhetes e soma os valores da coluna 7 (valor).
+     *
+     * @param matrizBilhetes Matriz com os dados dos bilhetes (sem cabeçalho)
      */
     public static void totalBilhetesVendidos(String[][] matrizBilhetes) throws FileNotFoundException {
 
         double valorTotal = 0;
 
+            // Acumula o valor de cada bilhete (coluna 7)
             for (int i = 0; i < matrizBilhetes.length; i++) {
                 valorTotal += Double.parseDouble(matrizBilhetes[i][7]);
             }
@@ -123,17 +137,22 @@ public class BibliotecaADM {
     }
 
     /**
-     * Função para mostrar os dados de um festivaleiro a escolha
-     * @param matrizBilhetes
-     * @param idCliente
+     * Pesquisa um festivaleiro pelo seu ID de cliente e imprime todos os bilhetes
+     * associados, bem como o total gasto.
+     *
+     * @param matrizBilhetes Matriz com os dados dos bilhetes (sem cabeçalho)
+     * @param idCliente      ID do cliente a pesquisar (coluna 1)
      */
     public static void pesquisaFestivaleiro(String[][] matrizBilhetes, String idCliente) {
         boolean encontrou = false;
         double totalGasto = 0;
 
         for (int i = 1; i < matrizBilhetes.length; i++) { // começa em 1 para saltar o cabeçalho
+
+            // Compara o idCliente (coluna 1) com o valor pesquisado
             if ((matrizBilhetes[i][1]).equals(idCliente)) {
-                if (!encontrou) {
+
+                if (!encontrou) { // Imprime o cabeçalho apenas na primeira ocorrência
                     System.out.println("\n***** FESTIVALEIRO ENCONTRADO *****");
                     System.out.println("Nome: "      + matrizBilhetes[i][2]);
                     System.out.println("Contacto: "  + matrizBilhetes[i][3]);
@@ -141,7 +160,7 @@ public class BibliotecaADM {
                     System.out.println("\nBilhetes adquiridos:");
                     encontrou = true;
                 }
-
+                // Adiciona o valor deste bilhete ao total gasto
                 double valor = Double.parseDouble(matrizBilhetes[i][7]);
                 totalGasto += valor;
                 System.out.println(matrizBilhetes[i][0] + " | " + matrizBilhetes[i][5] + " | " + matrizBilhetes[i][6] + " | " + valor + " €");
@@ -155,8 +174,10 @@ public class BibliotecaADM {
     }
 
     /**
-     * Função para imprimir os bilhetes mais caros
-     * @param matrizBilhetes
+     * Encontra e imprime o(s) bilhete(s) com o maior valor registado no ficheiro.
+     * Caso haja empate no valor máximo, todos os bilhetes empatados são apresentados.
+     *
+     * @param matrizBilhetes Matriz com os dados dos bilhetes (sem cabeçalho)
      */
     public static void bilheteMaiscaro(String[][] matrizBilhetes) {
     double maiorValor = 0;
@@ -169,6 +190,7 @@ public class BibliotecaADM {
         }
     }
 
+    // imprime todos os bilhetes com esse valor máximo
     System.out.println("\n***** BILHETE MAIS CARO *****");
     for (int i = 0; i < matrizBilhetes.length; i++) {
         double valor = Double.parseDouble(matrizBilhetes[i][7]);
@@ -180,8 +202,10 @@ public class BibliotecaADM {
 }
 
     /**
-     * Função para mostrar o festivaleiro que mais gastou e os bilhetes adquiridos
-     * @param matrizBilhetes
+     * Identifica e imprime o(s) festivaleiro(s) que mais dinheiro gastaram no festival.
+     * Se houver empate no total gasto, todos os festivaleiros empatados são apresentados.
+     *
+     * @param matrizBilhetes Matriz com os dados dos bilhetes (sem cabeçalho)
      */
     public static void melhoresFestivaleiros(String[][] matrizBilhetes) {
         double maiorTotal = 0;
@@ -204,8 +228,11 @@ public class BibliotecaADM {
         }
 
         System.out.println("\n***** MELHORES FESTIVALEIROS *****");
+
+        // Controla quais os clientes já foram impressos (evita repetição)
         boolean[] jaImprimiu = new boolean[matrizBilhetes.length];
 
+        //Imprime os clientes cujo total corresponde ao máximo
         for (int i = 0; i < matrizBilhetes.length; i++) {
             if (!jaImprimiu[i]) {
                 int idAtual = Integer.parseInt(matrizBilhetes[i][1]);
@@ -224,6 +251,7 @@ public class BibliotecaADM {
                     System.out.println("Total gasto: " + totalAtual + " €");
                     System.out.println("Bilhetes:");
 
+                    // Lista todos os bilhetes deste cliente e marca-os como já impressos
                     for (int j = 0; j < matrizBilhetes.length; j++) {
                         if (Integer.parseInt(matrizBilhetes[j][1]) == idAtual) {
                             System.out.println("- " + matrizBilhetes[j][0] + " | " + matrizBilhetes[j][5] + " | " + matrizBilhetes[j][6] + " | " + matrizBilhetes[j][7] + " €");
@@ -237,15 +265,18 @@ public class BibliotecaADM {
     }
 
     /**
-     *Imprimir todos os bilhetes vendidos no dia a escolha
-     * @param matrizBilhetes
-     * @param dia
+     * Imprime todos os bilhetes vendidos para um determinado dia do festival.
+     * A comparação é feita de forma insensível a maiúsculas/minúsculas.
+     *
+     * @param matrizBilhetes Matriz com os dados dos bilhetes (sem cabeçalho)
+     * @param dia            Dia a pesquisar (ex: "Sexta", "Sábado", "Domingo")
      */
     public static void pesquisaBilhetesPorDia(String[][] matrizBilhetes, String dia) {
         boolean encontrou = false;
 
         System.out.println("\n***** BILHETES PARA " + dia.toUpperCase() + " *****");
 
+        // Percorre todos os bilhetes e filtra pelo dia (coluna 5)
         for (int i = 0; i < matrizBilhetes.length; i++) {
             if (matrizBilhetes[i][5].equalsIgnoreCase(dia)) {
                 System.out.println(matrizBilhetes[i][0] + " | " + matrizBilhetes[i][2] + " | " + matrizBilhetes[i][3] + " | " + matrizBilhetes[i][4] + " | " + matrizBilhetes[i][6] + " | " + matrizBilhetes[i][7] + " €");
@@ -259,14 +290,17 @@ public class BibliotecaADM {
     }
 
     /**
-     * Função para saber o faturamento por tipo de bilhete
-     * @param matrizBilhetes
-     * @param tipoBilhete
+     * Calcula e imprime a quantidade de bilhetes vendidos e o total faturado
+     * para um tipo de bilhete específico.
+     *
+     * @param matrizBilhetes Matriz com os dados dos bilhetes (sem cabeçalho)
+     * @param tipoBilhete    Tipo de bilhete a filtrar (ex: "Diário", "VIP", "Backstage")
      */
     public static void receitaPorTipoBilhete(String[][] matrizBilhetes, String tipoBilhete) {
         int quantidade = 0;
         double total = 0;
 
+        // Percorre os bilhetes e acumula os do tipo indicado (coluna 6)
         for (int i = 0; i < matrizBilhetes.length; i++) {
             if (matrizBilhetes[i][6].equalsIgnoreCase(tipoBilhete)) {
                 quantidade++;
@@ -285,8 +319,10 @@ public class BibliotecaADM {
     }
 
     /**
-     * Função para o faturamento por dia do festival
-     * @param matrizBilhetes
+     * Calcula e imprime a receita total obtida em cada dia do festival
+     * (Sexta, Sábado e Domingo), incluindo a quantidade de bilhetes vendidos por dia.
+     *
+     * @param matrizBilhetes Matriz com os dados dos bilhetes (sem cabeçalho)
      */
     public static void receitaPorDia(String[][] matrizBilhetes) {
         String[] dias = {"Sexta", "Sábado", "Domingo"};
@@ -297,6 +333,7 @@ public class BibliotecaADM {
             int quantidade = 0;
             double total = 0;
 
+            // Filtra os bilhetes do dia atual e acumula quantidade e valor
             for (int j = 0; j < matrizBilhetes.length; j++) {
                 if (matrizBilhetes[j][5].equalsIgnoreCase(dias[i])) {
                     quantidade++;

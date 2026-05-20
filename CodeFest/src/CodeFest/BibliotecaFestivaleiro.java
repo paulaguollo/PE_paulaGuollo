@@ -5,18 +5,26 @@ import java.util.Scanner;
 
 import static CodeFest.BibliotecaFormatacao.*;
 
+/**
+ * Biblioteca de funções para o menu do Festivaleiro do CodeFest.
+ * Contém métodos para pesquisa no cartaz, quiz musical, registo de festivaleiros,
+ * lugares de campismo e apresentação de palcos gráficos.
+ */
 public class BibliotecaFestivaleiro {
 
     /**
-     * Função que mostra detalhes do festival por genero musical
+     * Pesquisa e imprime todos os concertos de um determinado género musical.
+     * Caso não existam concertos desse género, informa o utilizador.
      *
-     * @param matrizCartaz
-     * @param generoPesquisar
+     * @param matrizCartaz    Matriz com os dados do cartaz (sem cabeçalho)
+     * @param generoPesquisar Género musical a pesquisar (ex: "Rock", "Pop")
      */
     public static void pesquisarPorGenero(String[][] matrizCartaz, String generoPesquisar) {
         boolean encontrou = false;
 
         System.out.println("\n***** CONCERTOS DE " + generoPesquisar.toUpperCase() + " *****");
+
+        // Percorre o cartaz e filtra pela coluna 5 (género)
         for (int linha = 0; linha < matrizCartaz.length; linha++) {
             if (matrizCartaz[linha][5].equalsIgnoreCase(generoPesquisar)) {
                 // [4]=artista, [1]=dia, [2]=hora, [3]=palco, [6]=duracao
@@ -31,9 +39,10 @@ public class BibliotecaFestivaleiro {
     }
 
     /**
-     * Função para imprimir na consola o ficheiro txt com os palcos do evento
+     * Apresenta um submenu com os palcos disponíveis e imprime na consola
+     * o conteúdo do ficheiro .txt correspondente ao palco escolhido.
      *
-     * @throws FileNotFoundException
+     * @throws FileNotFoundException Caso algum dos ficheiros de palco não exista
      */
     public static void menuImprimePalco() throws FileNotFoundException {
         Scanner input = new Scanner(System.in);
@@ -54,15 +63,19 @@ public class BibliotecaFestivaleiro {
 
             switch (opcao) {
                 case "1":
+                    // Imprime o conteúdo gráfico ASCII do Palco Main
                     imprimirFicheiroNaConsola("CodeFest/data/Palco_Main.txt");
                     break;
                 case "2":
+                    // Imprime o conteúdo gráfico ASCII do Palco Java
                     imprimirFicheiroNaConsola("CodeFest/data/Palco_Java.txt");
                     break;
                 case "3":
-                    imprimirFicheiroNaConsola("CodeFest/data/Palco_Main.txt");
+                    // Imprime o conteúdo gráfico ASCII do Palco Commit
+                    imprimirFicheiroNaConsola("CodeFest/data/Palco_Commit.txt");
                     break;
                 case "0":
+                    // Ao sair, mostra o copyright do festival
                     copyright();
                     primaEnter();
                     break;
@@ -75,14 +88,18 @@ public class BibliotecaFestivaleiro {
     }
 
     /**
-     * Função para ver mais informações do festival filtrando pelo dia
-     * @param matrizCartaz
-     * @param dia
+     * Pesquisa e imprime todos os concertos de um determinado dia do festival.
+     * A comparação é feita de forma insensível a maiúsculas/minúsculas.
+     *
+     * @param matrizCartaz Matriz com os dados do cartaz (sem cabeçalho)
+     * @param dia          Dia a pesquisar (ex: "Sexta", "Sábado", "Domingo")
      */
     public static void pesquisaPorDia(String[][] matrizCartaz, String dia) {
         boolean encontrou = false;
 
         System.out.println("\n***** CONCERTOS NO DIA DE " + dia.toUpperCase() + " *****");
+
+        // Percorre o cartaz e filtra pela coluna 1 (dia)
         for (int linha = 0; linha < matrizCartaz.length; linha++) {
             if (matrizCartaz[linha][1].equalsIgnoreCase(dia)) {
                 // [2]=hora, [3]=palco, [4]=artista, [5]=genero, [6]=duracao
@@ -98,12 +115,15 @@ public class BibliotecaFestivaleiro {
     }
 
     /**
-     * Função para ter as informações do concerto mais longo. Pode aparecer mais de um se tiverem a mesma duração
-     * @param matrizCartaz
+     * Encontra e imprime o(s) concerto(s) com maior duração no cartaz do festival.
+     * Caso haja empate, todos os concertos com a mesma duração máxima são apresentados.
+     *
+     * @param matrizCartaz Matriz com os dados do cartaz (sem cabeçalho)
      */
     public static void concertoMaisLongo(String[][] matrizCartaz) {
 
         int maxDuracao = 0;
+        // Encontra a duração máxima (coluna 6)
         for (int linha = 0; linha < matrizCartaz.length; linha++) {
             int duracao = Integer.parseInt(matrizCartaz[linha][6]);
             if (duracao > maxDuracao) {
@@ -111,6 +131,7 @@ public class BibliotecaFestivaleiro {
             }
         }
 
+        //Imprime todos os concertos com essa duração máxima
         System.out.println("\n*****CONCERTO MAIS LONGO*****");
         for (int linha = 0; linha < matrizCartaz.length; linha++) {
             int duracao = Integer.parseInt(matrizCartaz[linha][6]);
@@ -122,15 +143,17 @@ public class BibliotecaFestivaleiro {
     }
 
     /**
-     * Função que mostra todos os artistas do cartaz sem repetir
-     * @param matrizCartaz
+     * Imprime todos os artistas presentes no cartaz do festival, sem duplicados.
+     * Um artista é considerado duplicado se o seu nome (coluna 4) já tiver aparecido antes.
+     *
+     * @param matrizCartaz Matriz com os dados do cartaz (sem cabeçalho)
      */
     public static void imprimirCartazArtistas(String[][] matrizCartaz) {
         System.out.println("\n***** CARTAZ DO FESTIVAL *****");
 
         for (int linha = 0; linha < matrizCartaz.length; linha++) {
             boolean duplicado = false;
-            // verifica para nao ser duplicado
+            // Verifica se este artista já apareceu em linhas anteriores
             for (int j = 0; j < linha; j++) {
                 if (matrizCartaz[j][4].equalsIgnoreCase(matrizCartaz[linha][4])) {
                     duplicado = true;
@@ -139,7 +162,7 @@ public class BibliotecaFestivaleiro {
             }
 
             if (!duplicado) {
-                //coluna 4 é a do artista
+                //Só imprime se não for duplicado (coluna 4 = artista)
                 System.out.println(matrizCartaz[linha][4]);
             }
         }
@@ -147,15 +170,18 @@ public class BibliotecaFestivaleiro {
     }
 
     /**
-     * Função para realizar login-novo registro de festivaleiro
-     * @param matrizBilhetes
-     * @param nome
-     * @param contacto
-     * @param email
+     * Simula o registo de um novo festivaleiro.
+     * Gera automaticamente um novo ID de cliente com base no maior ID existente.
+     * Nota: este método é auxiliar — a confirmação e impressão são feitas no menu.
+     *
+     * @param matrizBilhetes Matriz com os dados dos bilhetes (para calcular o novo ID)
+     * @param nome           Nome do novo festivaleiro
+     * @param contacto       Contacto telefónico do novo festivaleiro
+     * @param email          Email do novo festivaleiro
      */
     public static void novoRegisto(String[][] matrizBilhetes, String nome, String contacto, String email) {
 
-        // encontra o maior idCliente existente para gerar o novo id
+        // Encontra o maior idCliente existente para gerar o novo id
         int maiorId = 0;
         for (int linha = 0; linha < matrizBilhetes.length; linha++) {
             int idAtual = Integer.parseInt(matrizBilhetes[linha][1]);
@@ -163,13 +189,18 @@ public class BibliotecaFestivaleiro {
                 maiorId = idAtual;
             }
         }
+        // O novo ID seria maiorId + 1 (registo apenas simulado em memória)
         int novoId = maiorId + 1;
     }
 
     /**
-     * Função para fazer um quiz interativo com o festivaleiro
-     * @param matrizQuiz
-     * @param input de numero inteiro como resposta a escolher
+     * Implementa um quiz musical interativo com base no ficheiro Festival_Quiz.csv.
+     * Para cada pergunta, apresenta as quatro opções e valida a resposta do utilizador.
+     * No final, apresenta a pontuação obtida.
+     *
+     * @param matrizQuiz Matriz com as perguntas e respostas do quiz (sem cabeçalho)
+     *                   Colunas: pergunta | opcao1 | opcao2 | opcao3 | opcao4 | resposta_correta
+     * @param input      Scanner partilhado para leitura de input do utilizador
      */
     public static void quizMusical(String[][] matrizQuiz, Scanner input) {
         System.out.println("\n***** QUIZ MUSICAL *****");
@@ -186,6 +217,7 @@ public class BibliotecaFestivaleiro {
             System.out.print("Digite a sua Resposta? ");
             String resposta = input.nextLine();
 
+            // Compara a resposta do utilizador com a resposta correta (coluna 5)
             if (resposta.equals(matrizQuiz[linha][5])) {
                 System.out.println("Resposta correta!");
                 corretas++;
@@ -194,14 +226,18 @@ public class BibliotecaFestivaleiro {
             }
         }
 
+        // Apresenta a pontuação final
         System.out.println("\nQuiz Terminado\n");
         System.out.println("Respostas Corretas: " + corretas + "/" + matrizQuiz.length); //pontuação
     }
 
     /**
-     * Função para saber os lugares de compismo disponíveis
-     * A considerar que os lugares vao até 300
-     * A disponibilidade são todos os números triangulares múltiplos de 5
+     * Calcula e imprime os lugares de campismo disponíveis no festival.
+     * Os lugares disponíveis são os números triangulares múltiplos de 5 entre 1 e 300.
+     *
+     * Um número triangular T(n) = 1 + 2 + 3 + ... + n = n*(n+1)/2
+     * Exemplos: 1, 3, 6, 10, 15, 21, 28, 36, 45, 55, ...
+     * Apenas são apresentados os que são múltiplos de 5 e não ultrapassam 300.
      */
     public static void lugaresCampismo() {
         System.out.println("\n***** LUGARES DE CAMPISMO DISPONÍVEIS *****");
@@ -210,10 +246,10 @@ public class BibliotecaFestivaleiro {
         int n = 1;
 
         while (triangular <= 300) {
-            triangular = triangular + n; // soma os naturais consecutivos
+            triangular = triangular + n; // Soma os naturais consecutivos
             n++;
 
-            if (triangular <= 300 && triangular % 5 == 0) { // a considerar que precisa ser multiplo de 5
+            if (triangular <= 300 && triangular % 5 == 0) { // A considerar que precisa ser multiplo de 5
                 System.out.println("Lugar: " + triangular);
             }
         }
